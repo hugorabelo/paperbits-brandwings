@@ -6,6 +6,10 @@
  * found in the LICENSE file and at https://paperbits.io/license/mit.
  */
 
-export class ClickCounterModel { 
+export class ClickCounterModel {
     public initialCount: number;
+
+    constructor() {
+        this.initialCount = 0;
+    }
 }

@@ -3,16 +3,17 @@ import template from "./clickCounterEditor.html";
 import { ClickCounterModel } from "../clickCounterModel";
 import { Component, OnMounted, Param, Event } from "@paperbits/common/ko/decorators";
 import { WidgetEditor } from "@paperbits/common/widgets";
+import { ChangeRateLimit } from "@paperbits/common/ko/consts";
 
 @Component({
     selector: "click-counter-editor",
     template: template
 })
 export class ClickCounterEditor implements WidgetEditor<ClickCounterModel> {
-    public readonly initialCount: ko.Observable<string>;
+    public readonly initialCount: ko.Observable<number>;
 
     constructor() {
-        this.initialCount = ko.observable("0");
+        this.initialCount = ko.observable(0);
     }
 
     @Param()
@@ -28,12 +29,14 @@ export class ClickCounterEditor implements WidgetEditor<ClickCounterModel> {
            includinig "model", are available.
         */
 
-        this.initialCount(this.model.initialCount?.toString());
-        this.initialCount.subscribe(this.applyChanges);
+        this.initialCount(this.model.initialCount);
+        this.initialCount
+            .extend(ChangeRateLimit)
+            .subscribe(this.applyChanges);
     }
 
     private applyChanges(): void {
-        this.model.initialCount = parseInt(this.initialCount());
+        this.model.initialCount = this.initialCount();
         this.onChange(this.model);
     }
 }

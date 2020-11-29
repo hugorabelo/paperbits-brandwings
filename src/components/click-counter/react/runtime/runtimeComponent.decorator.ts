@@ -13,7 +13,9 @@ export function RuntimeComponent(config: any): (target: any) => void {
                 const element = <HTMLElement>this;
 
                 setTimeout(() => {
-                    const reactElement = createElement(target, {});
+                    const propsAttr = element.getAttribute("props");
+                    const props = propsAttr ? JSON.parse(propsAttr) : {};
+                    const reactElement = createElement(target, props);
                     ReactDOM.render(reactElement, element);
                 }, 10);
             }

@@ -12,7 +12,7 @@ export class ClickCounterRuntime extends React.Component {
         super(props);
 
         this.state = {
-            clickCount: 0
+            clickCount: props.initialCount || 0
         };
 
         this.increaseCount = this.increaseCount.bind(this);

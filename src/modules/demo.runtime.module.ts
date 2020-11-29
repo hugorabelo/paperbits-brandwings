@@ -9,26 +9,14 @@
 import "@paperbits/core/ko/bindingHandlers/bindingHandlers.component";
 import { IInjector, IInjectorModule } from "@paperbits/common/injection";
 import { DefaultEventManager } from "@paperbits/common/events";
-import { CoreRuntimeModule }  from "@paperbits/core/core.runtime.module";
+import { CoreRuntimeModule } from "@paperbits/core/core.runtime.module";
 import { DefaultRouter, HistoryRouteHandler, LocationRouteHandler } from "@paperbits/common/routing";
 import { VisibilityGuard } from "@paperbits/common/user";
 import { XmlHttpRequestClient } from "@paperbits/common/http";
 import { KnockoutRegistrationLoaders } from "@paperbits/core/ko/knockout.loaders";
 import { StaticUserService } from "../user/staticUserService";
 import { StaticRoleService } from "../user/staticRoleService";
-
-
-/* Knockout example component */
-import { ClickCounterRuntimeModule } from "../components/click-counter/ko/runtime";
-
-/* Uncomment to switch to Vue example component */
-// import { ClickCounterRuntimeModule } from "./click-counter/vue/runtime";
-
-/* Uncomment to switch to React example component */
-// import { ClickCounterRuntimeModule } from "./click-counter/react/runtime";
-
-/* Uncomment to switch to Angular example component */
-// import { ClickCounterRuntimeModule } from "./click-counter/angular/runtime";
+import { ClickCounterRuntimeModule } from "../components/click-counter/clickCounter.runtime.module";
 
 
 export class DemoRuntimeModule implements IInjectorModule {
