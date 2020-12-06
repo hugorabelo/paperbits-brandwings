@@ -14,15 +14,17 @@ export class ClickCounter extends React.Component {
     public render(): JSX.Element {
         return (
             <div>
-                <p className="not-configured">
-                    This is an example widget that is yet to be implemented. You can use it as a scaffold for your own widget.
-                </p>
-                
-                <p className="not-configured">
-                    Please refer to documentation to learn about <a href="https://paperbits.io/wiki/widget-anatomy">widget anatomy</a>.
-                </p>
+                <div className={this.state.styles?.classNames}>
+                    <p className="not-configured">
+                        This is an example widget that is yet to be implemented. You can use it as a scaffold for your own widget.
+                    </p>
 
-                <div style={{ height: 100 }} dangerouslySetInnerHTML={{__html: `<click-counter-runtime props='{ "initialCount": ${this.state.initialCount} }'></click-counter-runtime>`}} />
+                    <p className="not-configured">
+                        Please refer to documentation to learn about <a href="https://paperbits.io/wiki/widget-anatomy">widget anatomy</a>.
+                    </p>
+
+                    <div style={{ height: 100 }} dangerouslySetInnerHTML={{ __html: `<click-counter-runtime props='{ "initialCount": ${this.state.initialCount} }'></click-counter-runtime>` }} />
+                </div>
             </div>
         );
     }
