@@ -4,10 +4,14 @@ import { EventManager } from "@paperbits/common/events";
 import { Bag } from "@paperbits/common";
 import { WidgetBinding } from "@paperbits/common/editing";
 import { ClickCounterModel } from "../clickCounterModel";
+import { StyleCompiler } from "@paperbits/common/styles";
 
 
 export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounterModel, ClickCounter>  {
-    constructor(private readonly eventManager: EventManager) { }
+    constructor(
+        private readonly eventManager: EventManager,
+        private readonly styleCompiler: StyleCompiler
+    ) { }
 
     public async createWidgetBinding(model: ClickCounterModel, bindingContext?: Bag<any>): Promise<WidgetBinding> {
         const binding = new WidgetBinding();
@@ -20,16 +24,19 @@ export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounter
         binding.displayName = "Click counter";
         binding.viewModelClass = ClickCounter;
         binding.applyChanges = async (model) => {
-            await this.modelToViewModel(model, binding.viewModelInstance);
+            await this.modelToViewModel(model, binding.viewModelInstance, bindingContext);
             this.eventManager.dispatchEvent("onContentUpdate");
         };
 
         return binding;
     }
 
-    public async modelToViewModel(model: ClickCounterModel, viewModel?: ClickCounter): Promise<any> {
+    public async modelToViewModel(model: ClickCounterModel, viewModel?: ClickCounter, bindingContext?: Bag<any>): Promise<any> {
+        const styles = await this.styleCompiler.getStyleModelAsync(model.styles, bindingContext?.styleManager);
+
         viewModel.setState(state => ({
-            initialCount: model.initialCount
+            initialCount: model.initialCount,
+            styles: styles
         }));
 
         return viewModel;
