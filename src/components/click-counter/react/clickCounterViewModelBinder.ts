@@ -1,10 +1,10 @@
-import { ClickCounter } from "./clickCounter";
-import { ViewModelBinder } from "@paperbits/common/widgets";
-import { EventManager } from "@paperbits/common/events";
 import { Bag } from "@paperbits/common";
 import { WidgetBinding } from "@paperbits/common/editing";
-import { ClickCounterModel } from "../clickCounterModel";
+import { EventManager } from "@paperbits/common/events";
 import { StyleCompiler } from "@paperbits/common/styles";
+import { ViewModelBinder } from "@paperbits/common/widgets";
+import { ClickCounterModel } from "../clickCounterModel";
+import { ClickCounter } from "./clickCounter";
 
 
 export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounterModel, ClickCounter>  {
@@ -27,16 +27,31 @@ export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounter
             await this.modelToViewModel(model, binding.viewModelInstance, bindingContext);
             this.eventManager.dispatchEvent("onContentUpdate");
         };
+        binding.dispose = async () => {
+            if (model.styles?.instance) {
+                bindingContext.styleManager.removeStyleSheet(model.styles.instance.key);
+            }
+        };
 
         return binding;
     }
 
     public async modelToViewModel(model: ClickCounterModel, viewModel?: ClickCounter, bindingContext?: Bag<any>): Promise<any> {
-        const styles = await this.styleCompiler.getStyleModelAsync(model.styles, bindingContext?.styleManager);
+        let classNames = null;
+
+        if (model.styles) {
+            const styleModel = await this.styleCompiler.getStyleModelAsync(model.styles, bindingContext?.styleManager);
+
+            if (styleModel.styleManager) {
+                styleModel.styleManager.setStyleSheet(styleModel.styleSheet);
+            }
+
+            classNames = styleModel.classNames;
+        }
 
         viewModel.setState(state => ({
             initialCount: model.initialCount,
-            styles: styles
+            classNames: classNames
         }));
 
         return viewModel;

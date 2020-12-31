@@ -21,6 +21,8 @@ export class ClickCounterModel {
 
     constructor() {
         this.initialCount = 0;
-        this.styles = { appearance: "components/card/default" };
+        this.styles = {
+            appearance: "components/card/default"
+        };
     }
 }
