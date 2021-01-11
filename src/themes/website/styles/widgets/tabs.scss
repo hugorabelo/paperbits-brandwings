@@ -7,15 +7,18 @@ $tab-indicator-spacer: 20px;
 $tab-indicator-active-bg: #fff;
 
 .tabs {
-    display: flex;
+    display: block;
     position: relative;
     overflow: hidden;
 }
 
+.tabs-nav-items {
+    display: flex;
+    display: block;
+}
+
 .tab-content {
     display: none;
-    min-height: 200px;
-    min-width: 200px;
 
     &.active {
         display: block;
