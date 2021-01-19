@@ -1,128 +1,19 @@
-$tab-control-width: 20px;
-$tab-control-color: #ccc;
-$tab-control-opacity: 0.5;
-$tab-control-icon-size: 50px;
-$tab-indicator-size: 10px;
-$tab-indicator-spacer: 20px;
-$tab-indicator-active-bg: #fff;
-
-.tabs {
-    display: block;
+.tab-panel {
+    display: flex;
+    flex-direction: column;
     position: relative;
     overflow: hidden;
-}
 
-.tabs-nav-items {
-    display: flex;
-    display: block;
-}
-
-.tab-content {
-    display: none;
-
-    &.active {
-        display: block;
-    }
-}
-
-.tab.pointer-event {
-    touch-action: pan-y;
-}
-
-.tab-items {
-    display: flex;
-    position: relative;
-    transform: translateX(calc(-100% * var(--slide)));
-    width: 100%;
-
-    .tab-item {
+    .nav-tabs {
         display: flex;
-        min-width: 100%;
     }
-}
 
-.tab-item.active,
-.tab-item-next,
-.tab-item-prev {
-    display: flex;
-    flex: 1;
-}
+    .tab-content {
+        display: none;
+        flex-grow: 1;
 
-.tab-item-next:not(.tab-item-left),
-.active.tab-item-right {
-    transform: translateX(100%);
-}
-
-.tab-item-prev:not(.tab-item-right),
-.active.tab-item-left {
-    transform: translateX(-100%);
-}
-
-.tab-control-prev,
-.tab-control-next {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $tab-control-color;
-    text-align: center;
-    opacity: $tab-control-opacity;
-    background: none;
-    border: none;
-}
-.tab-control-prev {
-    left: 20px;
-}
-.tab-control-next {
-    right: 20px;
-}
-
-.tab-control-prev-icon,
-.tab-control-next-icon {
-    display: block;
-}
-.tab-control-prev-icon {
-    font-size: $tab-control-icon-size;
-}
-.tab-control-next-icon {
-    font-size: $tab-control-icon-size;
-}
-
-.tab-indicators {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 15;
-    display: flex;
-    justify-content: center;
-    padding-left: 0;
-    margin-right: $tab-control-width;
-    margin-left: $tab-control-width;
-    list-style: none;
-    pointer-events: none;
-
-    .tab-indicator {
-        box-sizing: content-box;
-        flex: 0 1 auto;
-        width: $tab-indicator-size;
-        height: $tab-indicator-size;
-        margin-right: $tab-indicator-spacer;
-        margin-left: $tab-indicator-spacer;
-        text-indent: -999px;
-        cursor: pointer;
-        background-color: none;
-        background-clip: padding-box;
-        opacity: 0.5;
-        border: 2px solid #cccccc85;
-        border-radius: $tab-indicator-size;
-
-        &.active {
-            opacity: 1;
-            background-color: #cccccc85;
+        &.tab-content-active {
+            display: flex;
         }
     }
 }
