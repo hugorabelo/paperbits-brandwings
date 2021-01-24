@@ -13,7 +13,7 @@ export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounter
         private readonly styleCompiler: StyleCompiler
     ) { }
 
-    public async createWidgetBinding(model: ClickCounterModel, bindingContext?: Bag<any>): Promise<WidgetBinding> {
+    public async createWidgetBinding(model: ClickCounterModel, bindingContext: Bag<any>): Promise<WidgetBinding<ClickCounterModel, ClickCounter>> {
         const binding = new WidgetBinding();
         binding.framework = "react";
         binding.model = model;
@@ -23,11 +23,14 @@ export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounter
         binding.draggable = true;
         binding.displayName = "Click counter";
         binding.viewModelClass = ClickCounter;
-        binding.applyChanges = async (model) => {
-            await this.modelToViewModel(model, binding.viewModelInstance, bindingContext);
+        binding.applyChanges = async () => {
+            await this.modelToViewModel(model, binding.viewModel, bindingContext);
             this.eventManager.dispatchEvent("onContentUpdate");
         };
-        binding.dispose = async () => {
+        binding.onCreate = async () => {
+            await this.modelToViewModel(model, binding.viewModel, bindingContext);
+        };
+        binding.onDispose = async () => {
             if (model.styles?.instance) {
                 bindingContext.styleManager.removeStyleSheet(model.styles.instance.key);
             }
@@ -36,7 +39,7 @@ export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounter
         return binding;
     }
 
-    public async modelToViewModel(model: ClickCounterModel, viewModel?: ClickCounter, bindingContext?: Bag<any>): Promise<any> {
+    public async modelToViewModel(model: ClickCounterModel, viewModel: ClickCounter, bindingContext?: Bag<any>): Promise<ClickCounter> {
         let classNames = null;
 
         if (model.styles) {

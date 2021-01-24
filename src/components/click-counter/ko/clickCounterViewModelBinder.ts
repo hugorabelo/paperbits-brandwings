@@ -1,9 +1,9 @@
-import { ClickCounter } from "./clickCounterViewModel";
+import { Bag } from "@paperbits/common";
+import { IWidgetBinding } from "@paperbits/common/editing";
+import { EventManager } from "@paperbits/common/events";
 import { ViewModelBinder } from "@paperbits/common/widgets";
 import { ClickCounterModel } from "../clickCounterModel";
-import { EventManager } from "@paperbits/common/events";
-import { IWidgetBinding } from "@paperbits/common/editing";
-import { Bag } from "@paperbits/common";
+import { ClickCounter } from "./clickCounterViewModel";
 
 export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounterModel, ClickCounter>  {
     constructor(private readonly eventManager: EventManager) { }
@@ -15,7 +15,7 @@ export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounter
 
         viewModel.runtimeConfig(JSON.stringify({ initialCount: model.initialCount }));
 
-        const binding: IWidgetBinding<ClickCounterModel> = {
+        const binding: IWidgetBinding<ClickCounterModel, ClickCounter> = {
             name: "click-counter",
             displayName: "Click counter",
             readonly: bindingContext ? bindingContext.readonly : false,
