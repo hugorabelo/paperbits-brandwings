@@ -10,6 +10,8 @@ import * as _ from "lodash";
 import * as FileSaver from "file-saver";
 import * as Objects from "@paperbits/common/objects";
 import { IObjectStorage, Query, Operator, OrderDirection, Page } from "@paperbits/common/persistence";
+import * as html2canvas from 'html2canvas';
+import { HttpClient } from "@paperbits/common/http";
 
 const pageSize = 20;
 
@@ -19,11 +21,25 @@ const pageSize = 20;
  */
 export class MemoryObjectStorage implements IObjectStorage {
     private splitter = "/";
+    private brandWingsURL = "";
 
-    constructor(private readonly dataProvider: any) { }
+    constructor(private readonly dataProvider: any, private readonly httpClient: HttpClient) { }
 
     protected async getDataObject(): Promise<Object> {
         const data = this.dataProvider.getDataObject();
+
+        this.httpClient.send({
+                url: "/data/url.json",
+                method: "GET"
+            }).then(response => {
+                var responseObject = response.toObject();
+                this.brandWingsURL = responseObject['BRAND_WINGS_URL'];
+
+                window.parent.postMessage({
+                    "message": "builder.loaded"
+                }, this.brandWingsURL)
+            });
+
         return data;
     }
 
@@ -187,7 +203,6 @@ export class MemoryObjectStorage implements IObjectStorage {
     }
 
     public async saveChanges(delta: Object): Promise<void> {
-        console.log("Saving changes...");
         const storageDataObject = await this.getDataObject();
 
         Objects.mergeDeep(storageDataObject, delta, true);
@@ -195,7 +210,26 @@ export class MemoryObjectStorage implements IObjectStorage {
         const state = JSON.stringify(storageDataObject);
         const stateBlob = new Blob([state], { type: "text/plain;charset=utf-8" });
 
-        FileSaver.saveAs(stateBlob, "demo.json");
+        const _filesObject = delta["files"];
+
+        const element = document.querySelector(".host") as HTMLIFrameElement;
+        var iframeDocument = element.contentDocument.getElementsByTagName("body")[0];
+
+        var _brandWingsURL = this.brandWingsURL;
+        (html2canvas as any)(iframeDocument)
+            .then(function (canvas) {
+                const image = canvas.toDataURL();
+                const sendObject = {
+                    files: _filesObject,
+                    thumbnail: image
+                }
+                window.parent.postMessage({
+                    "message": "builder.saved",
+                    "object": sendObject
+                }, _brandWingsURL)
+            })
+
+        // FileSaver.saveAs(stateBlob, "demo.json");
     }
 
     public async loadData(): Promise<object> {

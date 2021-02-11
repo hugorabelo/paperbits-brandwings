@@ -14,7 +14,7 @@ export class FileSystemObjectStorage extends MemoryObjectStorage {
     private storageDataObject: Object;
     
     constructor(private readonly dataPath: string) {
-        super(null);
+        super(null, null);
     }
 
     protected async getDataObject(): Promise<Object> {

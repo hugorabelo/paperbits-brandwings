@@ -8,6 +8,7 @@
 
 import * as Utils from "@paperbits/common/utils";
 import { IBlobStorage } from "@paperbits/common/persistence";
+import { HttpClient } from "@paperbits/common/http";
 
 
 /**
@@ -15,8 +16,9 @@ import { IBlobStorage } from "@paperbits/common/persistence";
  */
 export class MemoryBlobStorage implements IBlobStorage {
     private initPromise: Promise<Object>;
+    private brandWingsURL = "";
 
-    constructor(private readonly dataProvider: any) { }
+    constructor(private readonly dataProvider: any, private readonly httpClient: HttpClient) { }
 
     protected async getDataObject(): Promise<Object> {
         if (this.initPromise) {
@@ -47,6 +49,24 @@ export class MemoryBlobStorage implements IBlobStorage {
             contentType: contentType,
             content: `data:${contentType};base64,${Utils.arrayBufferToBase64(content)}`
         };
+
+        var imageContent = content
+        var imageUploaded = {
+            content: imageContent,
+            mimeType: contentType
+        }
+        this.httpClient.send({
+            url: "/data/url.json",
+            method: "GET"
+        }).then(response => {
+            var responseObject = response.toObject();
+            this.brandWingsURL = responseObject['BRAND_WINGS_URL'];
+
+            window.parent.postMessage({
+                "message": "builder.imageUploaded",
+                "object": imageUploaded
+            }, this.brandWingsURL)
+        });
     }
 
     /**
