@@ -211,6 +211,7 @@ export class MemoryObjectStorage implements IObjectStorage {
         const stateBlob = new Blob([state], { type: "text/plain;charset=utf-8" });
 
         const _filesObject = delta["files"];
+        const _stylesObject = delta["styles"];
 
         const element = document.querySelector(".host") as HTMLIFrameElement;
         var iframeDocument = element.contentDocument.getElementsByTagName("body")[0];
@@ -221,6 +222,7 @@ export class MemoryObjectStorage implements IObjectStorage {
                 const image = canvas.toDataURL();
                 const sendObject = {
                     files: _filesObject,
+                    styles: _stylesObject,
                     thumbnail: image
                 }
                 window.parent.postMessage({

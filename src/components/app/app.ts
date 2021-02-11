@@ -98,15 +98,17 @@ export class App {
         if(object.type) {
             switch (object.type) {
                 case "style":
-                    this.viewManager.setHost({ name: "style-guide" });
+                    this.openStyle(object.content.style);
                     break;
                 case "layout":
                     this.loadImageList(object.imagesList);
                     this.loadMenuList(object.menusList);
+                    this.openStyle(object.styles);
                     this.openLayoutObject(object.id, object.name, object.markup);
                     break;
                 case "page":
                     this.loadImageList(object.imagesList);
+                    this.openStyle(object.styles);
                     this.openPageObject(object.id, object.title, object.language, object.markup)
                     break;
                 case "images": 
@@ -279,20 +281,11 @@ export class App {
             })
     }
 
-    public publishSite() {
-       
-       const injector = new InversifyInjector(); 
-       const publisher = injector.resolve<IPublisher>("sitePublisher");
-
-        /* Running actual publishing */
-        publisher.publish()
+    public openStyle(content) {
+        this.objectStorage.deleteObject('style')
             .then(() => {
-                console.log("DONE.");
-                process.exit();
+                this.objectStorage.addObject('styles', JSON.parse(content))
+                this.viewManager.setHost({ name: "style-guide" });
             })
-            .catch((error) => {
-                console.log(error);
-                process.exit();
-            });
     }
 }
