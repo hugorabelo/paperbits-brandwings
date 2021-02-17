@@ -282,10 +282,12 @@ export class App {
     }
 
     public openStyle(content) {
-        this.objectStorage.deleteObject('style')
-            .then(() => {
-                this.objectStorage.addObject('styles', JSON.parse(content))
-                this.viewManager.setHost({ name: "style-guide" });
-            })
+        if(content) {
+            this.objectStorage.deleteObject('style')
+                .then(() => {
+                    this.objectStorage.addObject('styles', JSON.parse(content))
+                    this.viewManager.setHost({ name: "style-guide" });
+                })
+        }
     }
 }
