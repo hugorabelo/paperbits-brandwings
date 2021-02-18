@@ -50,7 +50,7 @@ export class MemoryBlobStorage implements IBlobStorage {
             content: `data:${contentType};base64,${Utils.arrayBufferToBase64(content)}`
         };
 
-        var imageContent = content
+        var imageContent = Utils.arrayBufferToBase64(content)
         var imageUploaded = {
             content: imageContent,
             mimeType: contentType
