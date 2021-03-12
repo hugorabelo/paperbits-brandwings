@@ -19,8 +19,6 @@ import { HttpClient } from "@paperbits/common/http";
 import { IMediaService, MediaContract } from "@paperbits/common/media";
 import { LayoutItem } from "@paperbits/core/workshops/layout/ko";
 import { layoutTemplate } from "@paperbits/common/layouts/layoutTemplate";
-import { IPublisher } from "@paperbits/common/publishing";
-import { InversifyInjector } from "@paperbits/common/injection";
 import { EventManager } from "@paperbits/common/events";
 
 const documentsPath = "files";
