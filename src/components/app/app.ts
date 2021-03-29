@@ -286,6 +286,8 @@ export class App {
                     this.objectStorage.addObject('styles', JSON.parse(content))
                     this.viewManager.setHost({ name: "style-guide" });
                 })
+        } else {
+            this.viewManager.setHost({ name: "style-guide" });
         }
     }
 }

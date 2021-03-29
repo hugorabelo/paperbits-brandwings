@@ -68,7 +68,7 @@
 }
 
 tray.toolbox {
-    div.toolbox-btn {
+    div.toolbox-btn:not(:first-of-type) {
         display: none;
     }
 }
