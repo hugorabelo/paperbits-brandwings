@@ -20,6 +20,9 @@ import { IMediaService, MediaContract } from "@paperbits/common/media";
 import { LayoutItem } from "@paperbits/core/workshops/layout/ko";
 import { layoutTemplate } from "@paperbits/common/layouts/layoutTemplate";
 import { EventManager } from "@paperbits/common/events";
+import { EmailContract } from "@paperbits/emails/emailContract";
+import { EmailItem } from "@paperbits/emails/workshops/emails/ko";
+import { EmailService } from "@paperbits/emails/emailService";
 
 const documentsPath = "files";
 const templateBlockKey = "blocks/new-page-template";
@@ -33,6 +36,7 @@ const urlPath = "../../.env";
 export class App {
     protected pagesPath: string = "pages";
     protected layoutsPath: string = "layouts";
+    protected emailTemplatesPath: string = "emailTemplates";
     private brandWingsURL = "";
     private currentObject = {};
     
@@ -44,6 +48,7 @@ export class App {
         private readonly httpClient: HttpClient,
         private readonly mediaService: IMediaService,
         private readonly layoutService: ILayoutService,
+        private readonly emailService: EmailService,
         private readonly eventManager: EventManager
     ) { 
         eventManager.addEventListener("onSaveChanges", async () => {
@@ -108,6 +113,11 @@ export class App {
                     this.loadImageList(object.imagesList);
                     this.openStyle(object.styles);
                     this.openPageObject(object.id, object.title, object.language, object.markup)
+                    break;
+                case "emailTemplate":
+                    this.loadImageList(object.imagesList);
+                    this.openStyle(object.styles);
+                    this.openEmailObject(object.id, object.title, object.language, object.markup)
                     break;
                 case "images": 
                     this.loadImageList(object);
@@ -289,5 +299,53 @@ export class App {
         } else {
             this.viewManager.setHost({ name: "style-guide" });
         }
+    }
+
+    public async openEmailObject(emailId, title, description, emailContent) {
+        let emailObject = await this.emailService.getEmailTemplateByKey(emailId)
+
+        if(!emailObject) {
+            const emailUrlTemplate = "/" + emailId;
+            emailObject = await this.createEmailTemplate(title, description, emailId, emailContent);
+        }
+
+        const emailItem = new EmailItem(emailObject)
+
+        
+
+        // this.selectedEmail(emailObject);
+        this.viewManager.setHost({ name: "email-host" });
+
+        const view: View = {
+            heading: "Email template",
+            component: {
+                name: "email-details-workshop",
+                params: {
+                    emailItem: emailItem,
+                }
+            }
+        };
+
+        this.viewManager.openViewAsWorkshop(view);
+    }
+
+    public async createEmailTemplate(title: string, description: string, identifier: string, content: string): Promise<EmailContract> {
+        const emailTemplateKey = `${this.emailTemplatesPath}/${identifier}`;
+        const contentKey = `${documentsPath}/${identifier}`;
+
+        const emailTemplate: EmailContract = {
+            key: emailTemplateKey,
+            title: title,
+            description: description,
+            contentKey: contentKey
+        };
+
+        await this.objectStorage.addObject(emailTemplateKey, emailTemplate);
+
+        const template = await this.blockService.getBlockContent(templateBlockKey);
+
+        await this.objectStorage.addObject(contentKey, template);
+
+        return emailTemplate;
     }
 }

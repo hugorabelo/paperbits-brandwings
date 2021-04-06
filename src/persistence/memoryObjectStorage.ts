@@ -212,6 +212,7 @@ export class MemoryObjectStorage implements IObjectStorage {
 
         const _filesObject = delta["files"];
         const _stylesObject = delta["styles"];
+        const _emailTemplatesObject = delta["emailTemplates"];
 
         const element = document.querySelector(".host") as HTMLIFrameElement;
         var iframeDocument = element.contentDocument.getElementsByTagName("body")[0];
@@ -223,6 +224,7 @@ export class MemoryObjectStorage implements IObjectStorage {
                 const sendObject = {
                     files: _filesObject,
                     styles: _stylesObject,
+                    emailTemplates: _emailTemplatesObject,
                     thumbnail: image
                 }
                 window.parent.postMessage({
