@@ -30,11 +30,12 @@ import { ClickCounterRuntimeModule } from "../components/click-counter/ko/runtim
 /* Uncomment to switch to Angular example component */
 // import { ClickCounterRuntimeModule } from "./click-counter/angular/runtime";
 
-
+import { PartnerLogoRuntimeModule } from "../components/partner-logo/runtime";
 export class DemoRuntimeModule implements IInjectorModule {
     public register(injector: IInjector): void {
         injector.bindModule(new KnockoutRegistrationLoaders());
         injector.bindModule(new ClickCounterRuntimeModule());
+        injector.bindModule(new PartnerLogoRuntimeModule());
         injector.bindSingleton("eventManager", DefaultEventManager);
         injector.bindCollection("autostart");
         injector.bindCollection("routeGuards");

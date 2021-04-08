@@ -15,6 +15,7 @@ import { MemoryObjectStorage } from "../persistence/memoryObjectStorage";
 import { MemoryBlobStorage } from "../persistence/memoryBlobStorage";
 import { StaticRoleService } from "../user/staticRoleService";
 import { ClickCounterEditorModule } from "../components/click-counter/ko/clickCounterEditor.module";
+import { PartnerLogoEditorModule } from "../components/partner-logo/partnerLogoEditor.module";
 import { HistoryRouteHandler } from "@paperbits/common/routing";
 import { HttpDataProvider } from "../persistence/httpDataProvider";
 import { DefaultEventManager } from "@paperbits/common/events";
@@ -31,5 +32,6 @@ export class DemoDesignModule implements IInjectorModule {
         injector.bindSingleton("eventManager", DefaultEventManager);
         injector.bindModule(new SearchDesignModule());
         injector.bindModule(new ClickCounterEditorModule());
+        injector.bindModule(new PartnerLogoEditorModule());
     }
 }

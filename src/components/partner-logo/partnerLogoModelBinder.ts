@@ -1,0 +1,37 @@
+/**
+ * @license
+ * Copyright Paperbits. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file and at https://paperbits.io/license/mit.
+ */
+
+import { IModelBinder } from "@paperbits/common/editing";
+import { PartnerLogoModel } from "./partnerLogoModel";
+import { Contract } from "@paperbits/common";
+import { PartnerLogoContract } from "./partnerLogoContract";
+
+export class PartnerLogoModelBinder implements IModelBinder<PartnerLogoModel> {
+    public canHandleContract(contract: Contract): boolean {
+        return contract.type === "partner-logo";
+    }
+
+    public canHandleModel(model: PartnerLogoModel): boolean {
+        return model instanceof PartnerLogoModel;
+    }
+
+    public async contractToModel(contract: PartnerLogoContract): Promise<PartnerLogoModel> {
+        const model = new PartnerLogoModel();
+        model.logoSize = contract.logoSize;
+        return model;
+    }
+
+    public modelToContract(model: PartnerLogoModel): Contract {
+        const contract: PartnerLogoContract = {
+            type: "partner-logo",
+            logoSize: model.logoSize
+        };
+
+        return contract;
+    }
+}
