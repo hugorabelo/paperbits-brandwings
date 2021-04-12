@@ -6,10 +6,14 @@ import { Component } from "@paperbits/common/ko/decorators";
     selector: "partner-logo",
     template: template
 })
-export class PartnerLogoViewModel {
+export class PartnerLogo {
     public readonly runtimeConfig: ko.Observable<string>;
+    // public width: ko.Observable<number>;
+    // public height: ko.Observable<number>;
 
     constructor() {
         this.runtimeConfig = ko.observable();
+        // this.width = ko.observable<number>();
+        // this.height = ko.observable<number>();
     }
 }

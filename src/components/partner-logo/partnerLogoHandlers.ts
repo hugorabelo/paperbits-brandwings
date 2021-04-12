@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @license
  * Copyright Paperbits. All Rights Reserved.
  *
@@ -21,6 +21,7 @@ export class PartnerLogoHandlers implements IWidgetHandler {
                 return new PartnerLogoModel();
             }
         };
+
         return widgetOrder;
     }
 }

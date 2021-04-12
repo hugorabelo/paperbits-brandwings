@@ -21,16 +21,7 @@ import { StaticRoleService } from "../user/staticRoleService";
 /* Knockout example component */
 import { ClickCounterRuntimeModule } from "../components/click-counter/ko/runtime";
 
-/* Uncomment to switch to Vue example component */
-// import { ClickCounterRuntimeModule } from "./click-counter/vue/runtime";
-
-/* Uncomment to switch to React example component */
-// import { ClickCounterRuntimeModule } from "./click-counter/react/runtime";
-
-/* Uncomment to switch to Angular example component */
-// import { ClickCounterRuntimeModule } from "./click-counter/angular/runtime";
-
-import { PartnerLogoRuntimeModule } from "../components/partner-logo/runtime";
+import { PartnerLogoRuntimeModule } from "../components/partner-logo/partnerLogo.runtime.module";
 export class DemoRuntimeModule implements IInjectorModule {
     public register(injector: IInjector): void {
         injector.bindModule(new KnockoutRegistrationLoaders());

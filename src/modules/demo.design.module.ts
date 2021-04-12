@@ -15,7 +15,7 @@ import { MemoryObjectStorage } from "../persistence/memoryObjectStorage";
 import { MemoryBlobStorage } from "../persistence/memoryBlobStorage";
 import { StaticRoleService } from "../user/staticRoleService";
 import { ClickCounterEditorModule } from "../components/click-counter/ko/clickCounterEditor.module";
-import { PartnerLogoEditorModule } from "../components/partner-logo/partnerLogoEditor.module";
+import { PartnerLogoEditorModule } from "../components/partner-logo/partnerLogo.design.module";
 import { HistoryRouteHandler } from "@paperbits/common/routing";
 import { HttpDataProvider } from "../persistence/httpDataProvider";
 import { DefaultEventManager } from "@paperbits/common/events";
