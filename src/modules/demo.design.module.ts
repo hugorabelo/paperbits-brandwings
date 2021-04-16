@@ -19,6 +19,9 @@ import { PartnerLogoEditorModule } from "../components/partner-logo/partnerLogo.
 import { HistoryRouteHandler } from "@paperbits/common/routing";
 import { HttpDataProvider } from "../persistence/httpDataProvider";
 import { DefaultEventManager } from "@paperbits/common/events";
+import { TextBlockEditorVariablesTools } from "../components/text-block-editor-variables/variableTools"
+import { VariableSelector } from "../components/text-block-editor-variables/variableSelector"
+import { VariableService } from "../components/text-block-editor-variables/variableService";
 
 export class DemoDesignModule implements IInjectorModule {
     public register(injector: IInjector): void {
@@ -27,11 +30,19 @@ export class DemoDesignModule implements IInjectorModule {
         injector.bindSingleton("blobStorage", MemoryBlobStorage);
         injector.bindSingleton("objectStorage", MemoryObjectStorage);
         injector.bindSingleton("roleService", StaticRoleService);
+        injector.bindSingleton("variableService", VariableService);
         injector.bindToCollection("autostart", HistoryRouteHandler);
         injector.bindSingleton("logger", ConsoleLogger);
         injector.bindSingleton("eventManager", DefaultEventManager);
         injector.bindModule(new SearchDesignModule());
         injector.bindModule(new ClickCounterEditorModule());
         injector.bindModule(new PartnerLogoEditorModule());
+        injector.bindInstance("textblockEditorPlugins", [
+            "text-block-editor-formatting",
+            "text-block-editor-hyperlinks",
+            "text-block-editor-variables"
+        ]);
+        injector.bind("textblockEditorVariableTools", TextBlockEditorVariablesTools);
+        injector.bind("variableSelector", VariableSelector);
     }
 }

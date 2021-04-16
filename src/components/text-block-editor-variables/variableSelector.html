@@ -1,0 +1,7 @@
+<div id="blockStyleSelector" class="tools-paragraphstyle" role="menu" data-bind="scrollable: true">
+    <!-- ko foreach: { data: variables, as: 'variable' } -->
+        <a href="#" role="menuitem" class="tools-paragraph-style tools-paragraph-style-normal"
+            data-bind="click: $component.insertVariable, text: variable"></a>
+        </a>
+    <!--/ko -->
+</div>

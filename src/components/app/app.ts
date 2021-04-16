@@ -116,6 +116,7 @@ export class App {
                     break;
                 case "emailTemplate":
                     this.loadImageList(object.imagesList);
+                    this.loadVariablesList(object.variableFields)
                     this.openStyle(object.styles);
                     this.openEmailObject(object.id, object.title, object.language, object.markup)
                     break;
@@ -301,6 +302,13 @@ export class App {
         }
     }
 
+    public async loadVariablesList(variablesList) {
+        this.objectStorage.deleteObject('variables')
+            .then(() => {
+                this.objectStorage.addObject('variables', variablesList);
+            })
+    }
+
     public async openEmailObject(emailId, title, description, emailContent) {
         let emailObject = await this.emailService.getEmailTemplateByKey(emailId)
 
@@ -311,9 +319,6 @@ export class App {
 
         const emailItem = new EmailItem(emailObject)
 
-        
-
-        // this.selectedEmail(emailObject);
         this.viewManager.setHost({ name: "email-host" });
 
         const view: View = {
