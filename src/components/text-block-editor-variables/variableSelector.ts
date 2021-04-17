@@ -20,7 +20,6 @@ export class VariableSelector {
 
     @OnMounted()
     public async initialize(): Promise<void> {
-        // const variables = ["{{RecipientFirstName}}", "{{RecipientLastName}}"];
         this.variableService.getVariables()
             .then(response => {
                 const variables = response
