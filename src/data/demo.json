@@ -1,5 +1,12 @@
 {
   "blocks": {
+    "new-email-template": {
+        "contentKey": "files/new-email-template",
+        "description": "",
+        "key": "blocks/new-email-template",
+        "title": "New email template",
+        "type": "email"
+    },
     "new-page-template": {
       "contentKey": "files/new-page-template",
       "description": "",

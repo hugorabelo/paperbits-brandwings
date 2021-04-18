@@ -26,6 +26,7 @@ import { EmailService } from "@paperbits/emails/emailService";
 
 const documentsPath = "files";
 const templateBlockKey = "blocks/new-page-template";
+const templateBlockEmailKey = "blocks/new-email-template";
 const urlPath = "../../.env";
 
 @Component({
@@ -347,7 +348,17 @@ export class App {
 
         await this.objectStorage.addObject(emailTemplateKey, emailTemplate);
 
-        const template = await this.blockService.getBlockContent(templateBlockKey);
+        let template;
+        if(content && content != '') {
+            template = {
+                nodes: JSON.parse(content),
+                type: "email",
+                key: contentKey
+            }
+        } else {
+            await this.blockService.getBlockContent(templateBlockEmailKey);
+            template["key"] = contentKey;
+        }
 
         await this.objectStorage.addObject(contentKey, template);
 
