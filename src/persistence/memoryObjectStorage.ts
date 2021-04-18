@@ -218,7 +218,7 @@ export class MemoryObjectStorage implements IObjectStorage {
         var iframeDocument = element.contentDocument.getElementsByTagName("body")[0];
 
         var _brandWingsURL = this.brandWingsURL;
-        (html2canvas as any)(iframeDocument)
+        (html2canvas as any)(iframeDocument, {allowTaint: true, useCORS: true})
             .then(function (canvas) {
                 const image = canvas.toDataURL();
                 const sendObject = {
