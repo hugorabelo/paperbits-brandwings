@@ -356,7 +356,7 @@ export class App {
                 key: contentKey
             }
         } else {
-            await this.blockService.getBlockContent(templateBlockEmailKey);
+            template = await this.blockService.getBlockContent(templateBlockEmailKey);
             template["key"] = contentKey;
         }
 
