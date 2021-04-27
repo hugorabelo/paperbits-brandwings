@@ -16,6 +16,7 @@ import { MemoryBlobStorage } from "../persistence/memoryBlobStorage";
 import { StaticRoleService } from "../user/staticRoleService";
 import { ClickCounterEditorModule } from "../components/click-counter/ko/clickCounterEditor.module";
 import { PartnerLogoEditorModule } from "../components/partner-logo/partnerLogo.design.module";
+import { BrandLogoEditorModule } from "../components/brand-logo/brandLogo.design.module";
 import { HistoryRouteHandler } from "@paperbits/common/routing";
 import { HttpDataProvider } from "../persistence/httpDataProvider";
 import { DefaultEventManager } from "@paperbits/common/events";
@@ -37,6 +38,7 @@ export class DemoDesignModule implements IInjectorModule {
         injector.bindModule(new SearchDesignModule());
         injector.bindModule(new ClickCounterEditorModule());
         injector.bindModule(new PartnerLogoEditorModule());
+        injector.bindModule(new BrandLogoEditorModule());
         injector.bindInstance("textblockEditorPlugins", [
             "text-block-editor-formatting",
             "text-block-editor-hyperlinks",

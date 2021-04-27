@@ -1,0 +1,31 @@
+<div class="form" data-bind="scrollable: true">
+    <div class="form-group form-group-collapsible">
+        <label class="form-label">
+            <a href="#" class="form-group-toggle" title="Toggle section" data-bind="collapse: '#basicCollapse'"></a>
+            <b>Source</b>
+        </label>
+        <div id="basicCollapse" class="collapse form-group-collapse">
+            <div class="form-group">
+                <label class="form-label">
+                    <input name="size" type="radio" value="{{BrandLogoUrlSmall}}"
+                        data-bind="checked: logoSource, event: { change: applyChanges }" />Small
+                </label>
+                <label class="form-label">
+                    <input name="size" type="radio" value="{{BrandLogoUrlMedium}}"
+                        data-bind="checked: logoSource, event: { change: applyChanges }" />Medium
+                </label>
+                <label class="form-label">
+                    <input name="size" type="radio" value="{{BrandLogoUrlLarge}}"
+                        data-bind="checked: logoSource, event: { change: applyChanges }" />Large
+                </label>
+                <label class="form-label">
+                    <input name="size" type="radio" value="{{BrandLogoUrlXLarge}}"
+                        data-bind="checked: logoSource, event: { change: applyChanges }" />Extra Large
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <size-editor params="{ features: 'height,width', sizeConfig: sizeConfig, onUpdate: onSizeChange }"></size-editor>
+
+</div>

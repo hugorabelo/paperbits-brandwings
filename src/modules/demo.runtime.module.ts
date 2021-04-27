@@ -22,11 +22,13 @@ import { StaticRoleService } from "../user/staticRoleService";
 import { ClickCounterRuntimeModule } from "../components/click-counter/ko/runtime";
 
 import { PartnerLogoRuntimeModule } from "../components/partner-logo/partnerLogo.runtime.module";
+import { BrandLogoRuntimeModule } from "../components/brand-logo/brandLogo.runtime.module";
 export class DemoRuntimeModule implements IInjectorModule {
     public register(injector: IInjector): void {
         injector.bindModule(new KnockoutRegistrationLoaders());
         injector.bindModule(new ClickCounterRuntimeModule());
         injector.bindModule(new PartnerLogoRuntimeModule());
+        injector.bindModule(new BrandLogoRuntimeModule());
         injector.bindSingleton("eventManager", DefaultEventManager);
         injector.bindCollection("autostart");
         injector.bindCollection("routeGuards");
