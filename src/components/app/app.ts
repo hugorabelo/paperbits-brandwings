@@ -59,10 +59,13 @@ export class App {
                 id: this.currentObject['id'],
                 html: document.documentElement.innerHTML
             }
-            window.parent.postMessage({
-                    "message": "builder.saveHTML",
-                    "object": sendObject
-                }, this.brandWingsURL)
+            return new Promise(resolve => { 
+                window.parent.postMessage({
+                        "message": "builder.saveHTML",
+                        "object": sendObject
+                    }, this.brandWingsURL)
+                resolve();
+            });
         });
     }
 
@@ -299,7 +302,7 @@ export class App {
                     this.viewManager.setHost({ name: "style-guide" });
                 })
         } else {
-            this.viewManager.setHost({ name: "style-guide" });
+            this.viewManager.setHost({ name: "page-host" });
         }
     }
 

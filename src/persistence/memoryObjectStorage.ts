@@ -34,10 +34,13 @@ export class MemoryObjectStorage implements IObjectStorage {
             }).then(response => {
                 var responseObject = response.toObject();
                 this.brandWingsURL = responseObject['BRAND_WINGS_URL'];
+                return new Promise(resolve => { 
+                    window.parent.postMessage({
+                        "message": "builder.loaded"
+                    }, this.brandWingsURL)
+                    resolve(1);
+                });
 
-                window.parent.postMessage({
-                    "message": "builder.loaded"
-                }, this.brandWingsURL)
             });
 
         return data;
@@ -227,10 +230,13 @@ export class MemoryObjectStorage implements IObjectStorage {
                     emailTemplates: _emailTemplatesObject,
                     thumbnail: image
                 }
-                window.parent.postMessage({
-                    "message": "builder.saved",
-                    "object": sendObject
-                }, _brandWingsURL)
+                return new Promise(resolve => { 
+                    window.parent.postMessage({
+                        "message": "builder.saved",
+                        "object": sendObject
+                    }, _brandWingsURL)
+                    resolve(1);
+                });
             })
 
         // FileSaver.saveAs(stateBlob, "demo.json");

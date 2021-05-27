@@ -62,10 +62,13 @@ export class MemoryBlobStorage implements IBlobStorage {
             var responseObject = response.toObject();
             this.brandWingsURL = responseObject['BRAND_WINGS_URL'];
 
-            window.parent.postMessage({
-                "message": "builder.imageUploaded",
-                "object": imageUploaded
-            }, this.brandWingsURL)
+            return new Promise(resolve => { 
+                window.parent.postMessage({
+                    "message": "builder.imageUploaded",
+                    "object": imageUploaded
+                }, this.brandWingsURL)
+                resolve(1);
+            });
         });
     }
 
