@@ -1,18 +1,22 @@
 import * as React from "react";
-import { RuntimeComponent } from "./runtimeComponent.decorator";
+import { RuntimeComponent } from "@paperbits/react/decorators";
 
+
+export interface ClickCounterState {
+    clickCount: number;
+}
 
 @RuntimeComponent({
     selector: "click-counter-runtime"
 })
 export class ClickCounterRuntime extends React.Component {
-    public state: any;
+    public state: ClickCounterState;
 
     constructor(props) {
         super(props);
 
         this.state = {
-            clickCount: 0
+            clickCount: props.initialCount || 0
         };
 
         this.increaseCount = this.increaseCount.bind(this);
@@ -24,15 +28,13 @@ export class ClickCounterRuntime extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div>
-                <div className="text text-align-center">
-                    <button className="button" onClick={this.increaseCount}>
-                        Click me
+            <div className="text text-align-center">
+                <button className="button" onClick={this.increaseCount}>
+                    Click me
                     </button>
-                    <div>
-                        <label htmlFor="clickCount">Click count:</label>
-                        <b id="clickCount">{this.state.clickCount}</b>
-                    </div>
+                <div>
+                    <label htmlFor="clickCount">Click count:</label>
+                    <b id="clickCount">{this.state.clickCount}</b>
                 </div>
             </div>
         );

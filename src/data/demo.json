@@ -1,11 +1,11 @@
 {
   "blocks": {
     "new-email-template": {
-        "contentKey": "files/new-email-template",
-        "description": "",
-        "key": "blocks/new-email-template",
-        "title": "New email template",
-        "type": "email"
+      "contentKey": "files/new-email-template",
+      "description": "",
+      "key": "blocks/new-email-template",
+      "title": "New email template",
+      "type": "email"
     },
     "new-page-template": {
       "contentKey": "files/new-page-template",
@@ -95,13 +95,9 @@
                 "instance": {
                   "grid": {
                     "colGap": "0",
-                    "cols": [
-                      "1fr"
-                    ],
+                    "cols": ["1fr"],
                     "rowGap": "0",
-                    "rows": [
-                      "auto"
-                    ]
+                    "rows": ["auto"]
                   },
                   "key": "vfkzttvgoj"
                 }
@@ -465,26 +461,12 @@
             "instance": {
               "grid": {
                 "md": {
-                  "cols": [
-                    "1fr",
-                    "1fr",
-                    "1fr",
-                    "1fr"
-                  ],
-                  "rows": [
-                    "auto"
-                  ]
+                  "cols": ["1fr", "1fr", "1fr", "1fr"],
+                  "rows": ["auto"]
                 },
                 "xs": {
-                  "cols": [
-                    "1fr"
-                  ],
-                  "rows": [
-                    "auto",
-                    "auto",
-                    "auto",
-                    "auto"
-                  ]
+                  "cols": ["1fr"],
+                  "rows": ["auto", "auto", "auto", "auto"]
                 }
               },
               "key": "itenksdawv",
@@ -1080,22 +1062,12 @@
                 "instance": {
                   "grid": {
                     "md": {
-                      "cols": [
-                        "1fr",
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto"
-                      ]
+                      "cols": ["1fr", "1fr"],
+                      "rows": ["auto"]
                     },
                     "xs": {
-                      "cols": [
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto",
-                        "auto"
-                      ]
+                      "cols": ["1fr"],
+                      "rows": ["auto", "auto"]
                     }
                   },
                   "key": "uizdbdlewx",
@@ -1372,22 +1344,12 @@
                 "instance": {
                   "grid": {
                     "md": {
-                      "cols": [
-                        "1fr",
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto"
-                      ]
+                      "cols": ["1fr", "1fr"],
+                      "rows": ["auto"]
                     },
                     "xs": {
-                      "cols": [
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto",
-                        "auto"
-                      ]
+                      "cols": ["1fr"],
+                      "rows": ["auto", "auto"]
                     }
                   },
                   "key": "wjgijvylai",
@@ -1650,22 +1612,12 @@
                 "instance": {
                   "grid": {
                     "md": {
-                      "cols": [
-                        "1fr",
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto"
-                      ]
+                      "cols": ["1fr", "1fr"],
+                      "rows": ["auto"]
                     },
                     "xs": {
-                      "cols": [
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto",
-                        "auto"
-                      ]
+                      "cols": ["1fr"],
+                      "rows": ["auto", "auto"]
                     }
                   },
                   "key": "huxydvcqqi",
@@ -1924,22 +1876,12 @@
                 "instance": {
                   "grid": {
                     "md": {
-                      "cols": [
-                        "1fr",
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto"
-                      ]
+                      "cols": ["1fr", "1fr"],
+                      "rows": ["auto"]
                     },
                     "xs": {
-                      "cols": [
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto",
-                        "auto"
-                      ]
+                      "cols": ["1fr"],
+                      "rows": ["auto", "auto"]
                     }
                   },
                   "key": "ngmoimdczb",
@@ -2184,22 +2126,12 @@
                 "instance": {
                   "grid": {
                     "md": {
-                      "cols": [
-                        "1fr",
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto"
-                      ]
+                      "cols": ["1fr", "1fr"],
+                      "rows": ["auto"]
                     },
                     "xs": {
-                      "cols": [
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto",
-                        "auto"
-                      ]
+                      "cols": ["1fr"],
+                      "rows": ["auto", "auto"]
                     }
                   },
                   "key": "qhztlsylpa",
@@ -2454,22 +2386,12 @@
                 "instance": {
                   "grid": {
                     "md": {
-                      "cols": [
-                        "1fr",
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto"
-                      ]
+                      "cols": ["1fr", "1fr"],
+                      "rows": ["auto"]
                     },
                     "xs": {
-                      "cols": [
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto",
-                        "auto"
-                      ]
+                      "cols": ["1fr"],
+                      "rows": ["auto", "auto"]
                     }
                   },
                   "key": "mhyjfwlxwb",
@@ -2602,12 +2524,8 @@
                 "instance": {
                   "grid": {
                     "xs": {
-                      "cols": [
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto"
-                      ]
+                      "cols": ["1fr"],
+                      "rows": ["auto"]
                     }
                   },
                   "key": "bsvezthefc",
@@ -2968,22 +2886,12 @@
                 "instance": {
                   "grid": {
                     "md": {
-                      "cols": [
-                        "1fr",
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto"
-                      ]
+                      "cols": ["1fr", "1fr"],
+                      "rows": ["auto"]
                     },
                     "xs": {
-                      "cols": [
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto",
-                        "auto"
-                      ]
+                      "cols": ["1fr"],
+                      "rows": ["auto", "auto"]
                     }
                   },
                   "key": "jvszsyzuns",
@@ -3348,12 +3256,8 @@
                 "instance": {
                   "grid": {
                     "xs": {
-                      "cols": [
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto"
-                      ]
+                      "cols": ["1fr"],
+                      "rows": ["auto"]
                     }
                   },
                   "key": "vccluuaylz",
@@ -3569,22 +3473,12 @@
             "instance": {
               "grid": {
                 "md": {
-                  "cols": [
-                    "1fr",
-                    "3fr"
-                  ],
-                  "rows": [
-                    "auto"
-                  ]
+                  "cols": ["1fr", "3fr"],
+                  "rows": ["auto"]
                 },
                 "xs": {
-                  "cols": [
-                    "1fr"
-                  ],
-                  "rows": [
-                    "auto",
-                    "auto"
-                  ]
+                  "cols": ["1fr"],
+                  "rows": ["auto", "auto"]
                 }
               },
               "key": "lfruyxayfh",
@@ -3757,12 +3651,8 @@
                 "instance": {
                   "grid": {
                     "xs": {
-                      "cols": [
-                        "1fr"
-                      ],
-                      "rows": [
-                        "auto"
-                      ]
+                      "cols": ["1fr"],
+                      "rows": ["auto"]
                     }
                   },
                   "key": "ppsehxpokz",
@@ -4618,12 +4508,7 @@
     "components": {
       "button": {
         "default": {
-          "allowedStates": [
-            "hover",
-            "focus",
-            "active",
-            "disabled"
-          ],
+          "allowedStates": ["hover", "focus", "active", "disabled"],
           "background": {
             "colorKey": "colors/6uYbQ"
           },
@@ -4698,12 +4583,7 @@
           }
         },
         "mdvcm": {
-          "allowedStates": [
-            "hover",
-            "focus",
-            "active",
-            "disabled"
-          ],
+          "allowedStates": ["hover", "focus", "active", "disabled"],
           "background": {
             "colorKey": "colors/4b5DK"
           },
@@ -4803,12 +4683,7 @@
           }
         },
         "htcga": {
-          "allowedStates": [
-            "hover",
-            "focus",
-            "active",
-            "disabled"
-          ],
+          "allowedStates": ["hover", "focus", "active", "disabled"],
           "borderRadius": {
             "topLeftRadius": 4,
             "topRightRadius": 4,
@@ -4866,9 +4741,7 @@
       },
       "card": {
         "default": {
-          "allowedStates": [
-            "hover"
-          ],
+          "allowedStates": ["hover"],
           "border": {
             "bottom": {
               "color": "orange",
@@ -4912,14 +4785,7 @@
       },
       "formControl": {
         "default": {
-          "allowedStates": [
-            "hover",
-            "focus",
-            "active",
-            "disabled",
-            "valid",
-            "invalid"
-          ],
+          "allowedStates": ["hover", "focus", "active", "disabled", "valid", "invalid"],
           "border": {
             "bottom": {
               "style": "solid",
@@ -5062,12 +4928,7 @@
             },
             "navLink": {
               "active": {
-                "allowedStates": [
-                  "hover",
-                  "focus",
-                  "active",
-                  "disabled"
-                ],
+                "allowedStates": ["hover", "focus", "active", "disabled"],
                 "displayName": "Navigation link",
                 "key": "components/menu/6jz0j/components/navLink/active",
                 "typography": {
@@ -5075,12 +4936,7 @@
                 }
               },
               "default": {
-                "allowedStates": [
-                  "hover",
-                  "focus",
-                  "active",
-                  "disabled"
-                ],
+                "allowedStates": ["hover", "focus", "active", "disabled"],
                 "displayName": "Navigation link",
                 "key": "components/menu/6jz0j/components/navLink/default",
                 "margin": {
@@ -5128,12 +4984,7 @@
             },
             "navLink": {
               "active": {
-                "allowedStates": [
-                  "hover",
-                  "focus",
-                  "active",
-                  "disabled"
-                ],
+                "allowedStates": ["hover", "focus", "active", "disabled"],
                 "displayName": "Navigation link",
                 "key": "components/menu/default/components/navLink/active",
                 "typography": {
@@ -5141,12 +4992,7 @@
                 }
               },
               "default": {
-                "allowedStates": [
-                  "hover",
-                  "focus",
-                  "active",
-                  "disabled"
-                ],
+                "allowedStates": ["hover", "focus", "active", "disabled"],
                 "displayName": "Navigation link",
                 "key": "components/menu/default/components/navLink/default",
                 "margin": {
@@ -5172,22 +5018,12 @@
           "components": {
             "navLink": {
               "active": {
-                "allowedStates": [
-                  "hover",
-                  "focus",
-                  "active",
-                  "disabled"
-                ],
+                "allowedStates": ["hover", "focus", "active", "disabled"],
                 "displayName": "Navigation link",
                 "key": "components/navbar/default/components/navLink/active"
               },
               "default": {
-                "allowedStates": [
-                  "hover",
-                  "focus",
-                  "active",
-                  "disabled"
-                ],
+                "allowedStates": ["hover", "focus", "active", "disabled"],
                 "displayName": "Navigation link",
                 "key": "components/navbar/default/components/navLink/default",
                 "margin": {
@@ -5310,12 +5146,7 @@
     "globals": {
       "a": {
         "default": {
-          "allowedStates": [
-            "hover",
-            "focus",
-            "active",
-            "disabled"
-          ],
+          "allowedStates": ["hover", "focus", "active", "disabled"],
           "displayName": "Link",
           "key": "globals/a/default",
           "states": {

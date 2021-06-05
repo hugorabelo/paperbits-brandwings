@@ -8,24 +8,17 @@
 
 import "@paperbits/core/ko/bindingHandlers/bindingHandlers.component";
 import { IInjector, IInjectorModule } from "@paperbits/common/injection";
-import { DefaultEventManager } from "@paperbits/common/events";
-import { CoreRuntimeModule }  from "@paperbits/core/core.runtime.module";
-import { DefaultRouter, HistoryRouteHandler, LocationRouteHandler } from "@paperbits/common/routing";
-import { VisibilityGuard } from "@paperbits/common/user";
-import { XmlHttpRequestClient } from "@paperbits/common/http";
-import { KnockoutRegistrationLoaders } from "@paperbits/core/ko/knockout.loaders";
 import { StaticUserService } from "../user/staticUserService";
 import { StaticRoleService } from "../user/staticRoleService";
 
 
 /* Knockout example component */
-import { ClickCounterRuntimeModule } from "../components/click-counter/ko/runtime";
 
 import { PartnerLogoRuntimeModule } from "../components/partner-logo/partnerLogo.runtime.module";
 import { BrandLogoRuntimeModule } from "../components/brand-logo/brandLogo.runtime.module";
+import { ClickCounterRuntimeModule } from "../components/click-counter/clickCounter.runtime.module";
 export class DemoRuntimeModule implements IInjectorModule {
     public register(injector: IInjector): void {
-        injector.bindModule(new KnockoutRegistrationLoaders());
         injector.bindModule(new ClickCounterRuntimeModule());
         injector.bindModule(new PartnerLogoRuntimeModule());
         injector.bindModule(new BrandLogoRuntimeModule());
@@ -37,8 +30,5 @@ export class DemoRuntimeModule implements IInjectorModule {
         injector.bindToCollection("autostart", VisibilityGuard);
         injector.bindSingleton("userService", StaticUserService);
         injector.bindSingleton("roleService", StaticRoleService);
-        injector.bindToCollection("autostart", location.href.includes("designtime=true")
-            ? HistoryRouteHandler
-            : LocationRouteHandler);
     }
 }

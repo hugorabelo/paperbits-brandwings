@@ -28,6 +28,7 @@ const documentsPath = "files";
 const templateBlockKey = "blocks/new-page-template";
 const templateBlockEmailKey = "blocks/new-email-template";
 const urlPath = "../../.env";
+import { Logger } from "@paperbits/common/logging";
 
 @Component({
     selector: "app",
@@ -50,6 +51,7 @@ export class App {
         private readonly mediaService: IMediaService,
         private readonly layoutService: ILayoutService,
         private readonly emailService: EmailService,
+        private readonly logger: Logger,
         private readonly eventManager: EventManager
     ) { 
         eventManager.addEventListener("onSaveChanges", async () => {
@@ -64,11 +66,11 @@ export class App {
                         "message": "builder.saveHTML",
                         "object": sendObject
                     }, this.brandWingsURL)
-                resolve();
+                resolve(1);
             });
         });
     }
-
+        
     @OnMounted()
     public async initialize(): Promise<void> {
         var params = new Array();
@@ -82,6 +84,15 @@ export class App {
         }
 
         this.viewManager.setHost({ name: "page-host" });
+
+        //NEW FROM PAPERBITS
+        this.logger.trackEvent("Startup", { message: `App started.` });
+
+        setTimeout(() => this.eventManager.dispatchEvent("displayHint", {
+            key: "a69b",
+            content: `When you're in the administrative view, you still can navigate any website hyperlink by clicking on it holding Ctrl (Windows) or ⌘ (Mac) key.`
+        }), 5000);
+        //END NEW FROM PAPERBITS
 
         this.httpClient.send({
             url: "/data/url.json",

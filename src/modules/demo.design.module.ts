@@ -14,15 +14,17 @@ import { SearchDesignModule } from "@paperbits/core/search/search.design.module"
 import { MemoryObjectStorage } from "../persistence/memoryObjectStorage";
 import { MemoryBlobStorage } from "../persistence/memoryBlobStorage";
 import { StaticRoleService } from "../user/staticRoleService";
-import { ClickCounterEditorModule } from "../components/click-counter/ko/clickCounterEditor.module";
 import { PartnerLogoEditorModule } from "../components/partner-logo/partnerLogo.design.module";
 import { BrandLogoEditorModule } from "../components/brand-logo/brandLogo.design.module";
-import { HistoryRouteHandler } from "@paperbits/common/routing";
 import { HttpDataProvider } from "../persistence/httpDataProvider";
 import { DefaultEventManager } from "@paperbits/common/events";
 import { TextBlockEditorVariablesTools } from "../components/text-block-editor-variables/variableTools"
 import { VariableSelector } from "../components/text-block-editor-variables/variableSelector"
 import { VariableService } from "../components/text-block-editor-variables/variableService";
+import { ClickCounterEditorModule } from "../components/click-counter/clickCounter.design.module";
+import { HistoryRouteHandler, AnchorRouteHandler } from "@paperbits/common/routing";
+import { ReactModule } from "@paperbits/react/react.module";
+import { PopupDesignModule } from "@paperbits/core/popup";
 
 export class DemoDesignModule implements IInjectorModule {
     public register(injector: IInjector): void {
@@ -33,6 +35,7 @@ export class DemoDesignModule implements IInjectorModule {
         injector.bindSingleton("roleService", StaticRoleService);
         injector.bindSingleton("variableService", VariableService);
         injector.bindToCollection("autostart", HistoryRouteHandler);
+        injector.bindToCollection("autostart", AnchorRouteHandler);
         injector.bindSingleton("logger", ConsoleLogger);
         injector.bindSingleton("eventManager", DefaultEventManager);
         injector.bindModule(new SearchDesignModule());
@@ -46,5 +49,7 @@ export class DemoDesignModule implements IInjectorModule {
         ]);
         injector.bind("textblockEditorVariableTools", TextBlockEditorVariablesTools);
         injector.bind("variableSelector", VariableSelector);
+        injector.bindModule(new ReactModule());
+        injector.bindModule(new PopupDesignModule());
     }
 }
