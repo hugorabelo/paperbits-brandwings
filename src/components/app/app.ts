@@ -317,16 +317,6 @@ export class App {
             }]
         });
 
-        // this.httpClient.send({
-        //     url: "https://dev-api.brandwings.com/api/v1/themes/8f57cf90-c381-466d-96eb-6f1f9e9683ae/menus",
-        //     method: "GET",
-        //     headers: [{
-        //         "name": "authorization",
-        //         "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImY4M2FiM2E2LTcxMGUtNDUxNy05NTRkLTBmYWE2OTIxNDdmOSIsIlN1YnNjcmliZXJJRCI6ImVlYzE3NTM4LWQ3MmQtNDY5Mi04NDk1LWYxZDE5NjU2NDc0YiIsIkJyYW5kSUQiOiI1ZGY2MmE3Mi1jM2FkLTQ3MjEtYThhOC05MTQ3ZmUwNzQyNGEiLCJuYmYiOjE2MjI5MTk3NDgsImV4cCI6MTYyMzAwNjE0OCwiaWF0IjoxNjIyOTE5NzQ4fQ.c4_eqM_krX62QCEcp3OBnZt0BVvInzhp6GESzJ3_f-Q"
-        //     }]
-        // }).then(response => {
-        //     console.log(response.toObject())
-        // })
         this.objectStorage.deleteObject('navigationItems')
             .then(() => {
                 this.objectStorage.addObject('navigationItems', menusList);
