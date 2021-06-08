@@ -15,7 +15,7 @@ export class PartnerLogoHandlers implements IWidgetHandler {
         const widgetOrder: IWidgetOrder = {
             name: "partnerLogo",
             displayName: "Partner Logo",
-            iconClass: "paperbits-puzzle-10",
+            iconClass: "widget-icon widget-icon-picture-gallery",
             requires: [],
             createModel: async () => {
                 return new PartnerLogoModel();

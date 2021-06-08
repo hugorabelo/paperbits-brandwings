@@ -34,11 +34,11 @@ export class MemoryObjectStorage implements IObjectStorage {
             }).then(response => {
                 var responseObject = response.toObject();
                 this.brandWingsURL = responseObject['BRAND_WINGS_URL'];
-                return new Promise(resolve => { 
+                return new Promise<void>(resolve => { 
                     window.parent.postMessage({
                         "message": "builder.loaded"
                     }, this.brandWingsURL)
-                    resolve(1);
+                    resolve();
                 });
 
             });
@@ -230,12 +230,12 @@ export class MemoryObjectStorage implements IObjectStorage {
                     emailTemplates: _emailTemplatesObject,
                     thumbnail: image
                 }
-                return new Promise(resolve => { 
+                return new Promise<void>(resolve => { 
                     window.parent.postMessage({
                         "message": "builder.saved",
                         "object": sendObject
                     }, _brandWingsURL)
-                    resolve(1);
+                    resolve();
                 });
             })
 

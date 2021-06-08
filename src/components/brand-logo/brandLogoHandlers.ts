@@ -15,7 +15,7 @@ export class BrandLogoHandlers implements IWidgetHandler {
         const widgetOrder: IWidgetOrder = {
             name: "brandLogo",
             displayName: "Brand Logo",
-            iconClass: "paperbits-puzzle-10",
+            iconClass: "widget-icon widget-icon-picture",
             requires: [],
             createModel: async () => {
                 return new BrandLogoModel();

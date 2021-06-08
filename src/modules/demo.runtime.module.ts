@@ -8,6 +8,10 @@
 
 import "@paperbits/core/ko/bindingHandlers/bindingHandlers.component";
 import { IInjector, IInjectorModule } from "@paperbits/common/injection";
+import { DefaultEventManager } from "@paperbits/common/events";
+import { DefaultRouter } from "@paperbits/common/routing";
+import { VisibilityGuard } from "@paperbits/common/user";
+import { XmlHttpRequestClient } from "@paperbits/common/http";
 import { StaticUserService } from "../user/staticUserService";
 import { StaticRoleService } from "../user/staticRoleService";
 
@@ -22,12 +26,12 @@ export class DemoRuntimeModule implements IInjectorModule {
         injector.bindModule(new ClickCounterRuntimeModule());
         injector.bindModule(new PartnerLogoRuntimeModule());
         injector.bindModule(new BrandLogoRuntimeModule());
-        injector.bindSingleton("eventManager", DefaultEventManager);
-        injector.bindCollection("autostart");
-        injector.bindCollection("routeGuards");
-        injector.bindSingleton("router", DefaultRouter);
+        // injector.bindSingleton("eventManager", DefaultEventManager);
+        // injector.bindCollection("autostart");
+        // injector.bindCollection("routeGuards");
+        // injector.bindSingleton("router", DefaultRouter);
         injector.bind("httpClient", XmlHttpRequestClient);
-        injector.bindToCollection("autostart", VisibilityGuard);
+        // injector.bindToCollection("autostart", VisibilityGuard);
         injector.bindSingleton("userService", StaticUserService);
         injector.bindSingleton("roleService", StaticRoleService);
     }
