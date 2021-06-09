@@ -22,26 +22,31 @@ const pageSize = 20;
 export class MemoryObjectStorage implements IObjectStorage {
     private splitter = "/";
     private brandWingsURL = "";
+    private builderLoaded = false;
 
-    constructor(private readonly dataProvider: any, private readonly httpClient: HttpClient) { }
+    constructor(private readonly dataProvider: any, private readonly httpClient: HttpClient) { 
+        this.builderLoaded = false
+    }
 
     protected async getDataObject(): Promise<Object> {
         const data = this.dataProvider.getDataObject();
 
-        this.httpClient.send({
-                url: "/data/url.json",
-                method: "GET"
-            }).then(response => {
-                var responseObject = response.toObject();
-                this.brandWingsURL = responseObject['BRAND_WINGS_URL'];
-                return new Promise<void>(resolve => { 
-                    window.parent.postMessage({
-                        "message": "builder.loaded"
-                    }, this.brandWingsURL)
-                    resolve();
+        if(!this.builderLoaded) {
+            this.builderLoaded = true;
+            this.httpClient.send({
+                    url: "/data/url.json",
+                    method: "GET"
+                }).then(response => {
+                    var responseObject = response.toObject();
+                    this.brandWingsURL = responseObject['BRAND_WINGS_URL'];
+                    return new Promise<void>(resolve => { 
+                        window.parent.postMessage({
+                            "message": "builder.loaded"
+                        }, this.brandWingsURL)
+                        resolve();
+                    });
                 });
-
-            });
+        }
 
         return data;
     }

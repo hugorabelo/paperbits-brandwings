@@ -8,7 +8,7 @@
 
 import template from "./app.html";
 import { ViewManager, View } from "@paperbits/common/ui";
-import { Component, OnMounted } from "@paperbits/common/ko/decorators";
+import { Component, OnMounted, OnDestroyed } from "@paperbits/common/ko/decorators";
 import { IObjectStorage, Query } from "@paperbits/common/persistence";
 import { PageContract, IPageService, PageLocalizedContract } from "@paperbits/common/pages";
 import { LayoutContract, ILayoutService, LayoutLocalizedContract } from "@paperbits/common/layouts";
@@ -104,14 +104,21 @@ export class App {
             this.brandWingsURL = responseObject['BRAND_WINGS_URL'];
         });
 
-        window.addEventListener("message", (event) => {
-            if(event.origin != this.brandWingsURL) {
-                return;
-            }
-            var eData = event.data;
-            this.currentObject = eData;
-            this.openObject(eData);
-        }, false);
+        window.addEventListener("message", this.functionEventListener);
+    }
+
+    @OnDestroyed()
+    public async dispose(): Promise<void> {
+        window.removeEventListener("message", this.functionEventListener);
+    }
+
+    public functionEventListener(event) {
+        if(event.origin != this.brandWingsURL) {
+            return;
+        }
+        var eData = event.data;
+        this.currentObject = eData;
+        this.openObject(eData);
     }
 
     public openObject(object) {

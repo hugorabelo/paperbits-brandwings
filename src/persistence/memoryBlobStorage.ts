@@ -53,7 +53,8 @@ export class MemoryBlobStorage implements IBlobStorage {
         var imageContent = Utils.arrayBufferToBase64(content)
         var imageUploaded = {
             content: imageContent,
-            mimeType: contentType
+            mimeType: contentType,
+            blobKey: blobKey
         }
         this.httpClient.send({
             url: "/data/url.json",
