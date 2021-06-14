@@ -15,12 +15,10 @@ import { StyleHelper } from "@paperbits/styles";
 export class PartnerLogoEditor implements WidgetEditor<PartnerLogoModel> {
     public readonly logoSource: ko.Observable<string>;
     public readonly background: ko.Observable<BackgroundStylePluginConfig>;
-    public readonly sizeConfig: ko.Observable<SizeStylePluginConfig>;
 
     constructor() {
         this.logoSource = ko.observable("0");
         this.background = ko.observable<BackgroundStylePluginConfig>();
-        this.sizeConfig = ko.observable();
     }
 
     @Param()
@@ -41,9 +39,6 @@ export class PartnerLogoEditor implements WidgetEditor<PartnerLogoModel> {
             .extend(ChangeRateLimit)
             .subscribe(this.applyChanges);
 
-        this.sizeConfig({ width: this.model.width, height: this.model.height });
-        this.sizeConfig.extend(ChangeRateLimit).subscribe(this.applyChanges);
-
         const backgroundStyleConfig = StyleHelper.getPluginConfigForLocalStyles(this.model.styles, "background");
         this.background(backgroundStyleConfig);
     }
@@ -58,9 +53,4 @@ export class PartnerLogoEditor implements WidgetEditor<PartnerLogoModel> {
         this.onChange(this.model);
     }
 
-    public onSizeChange(sizeConfig: SizeStylePluginConfig): void {
-        this.model.width = <number>sizeConfig.width;
-        this.model.height = <number>sizeConfig.height;
-        this.applyChanges();
-    }
 }

@@ -15,24 +15,12 @@ export class PartnerLogoModel {
     public logoSource: string;
 
     /**
-     * Partner Logo width.
-     */
-    public width: number;
-
-    /**
-     * Partner Logo height.
-     */
-    public height: number;
-
-    /**
      * Widget local styles.
      */
     public styles: LocalStyles;
 
     constructor() {
         this.logoSource = "{{PartnerLogoUrlXLarge}}";
-        this.width = 300;
-        this.height = 80;
         this.styles = {
             appearance: "components/card/default"
         };

@@ -8,16 +8,6 @@ export interface BrandLogoContract extends Contract {
     logoSource: string;
 
     /**
-     * Logo width.
-     */
-    width?: number;
-
-    /**
-     * Logo height.
-     */
-    height?: number;
-
-    /**
      * Widget local styles.
      */
     styles?: LocalStyles;

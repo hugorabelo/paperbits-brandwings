@@ -23,8 +23,6 @@ export class PartnerLogoModelBinder implements IModelBinder<PartnerLogoModel> {
     public async contractToModel(contract: PartnerLogoContract): Promise<PartnerLogoModel> {
         const model = new PartnerLogoModel();
         model.logoSource = contract.logoSource;
-        model.width = contract.width;
-        model.height = contract.height;
         model.styles = contract.styles;
         return model;
     }
@@ -33,8 +31,6 @@ export class PartnerLogoModelBinder implements IModelBinder<PartnerLogoModel> {
         const contract: PartnerLogoContract = {
             type: "partner-logo",
             logoSource: model.logoSource,
-            width: model.width,
-            height: model.height,
             styles: model.styles
         };
 

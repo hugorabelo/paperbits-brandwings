@@ -1,25 +1,41 @@
 <style type="text/css">
-    .brand-logo-image {
-        background: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10px, rgba(0, 0, 0, 0.05) 10px, rgba(0, 0, 0, 0.05) 20px);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-    }
+  .brand-logo-image {
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0) 10px,
+      rgba(0, 0, 0, 0.05) 10px,
+      rgba(0, 0, 0, 0.05) 20px
+    );
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
 
-    .brand-logo-image::before {
-        top: 5px;
-        left: 5px;
-        right: 5px;
-        bottom: 5px;
-        position: absolute;
-        content: "BRAND LOGO";
-        background: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10px, rgba(0, 0, 0, 0.05) 10px, rgba(0, 0, 0, 0.05) 20px);
-        padding-top: 20px;
-        font-size: 16px;
-        font-family: 'Roboto';
-        font-weight: bold;
-    }
+  .brand-logo-image::before {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    position: absolute;
+    content: 'BRAND LOGO';
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0) 10px,
+      rgba(0, 0, 0, 0.05) 10px,
+      rgba(0, 0, 0, 0.05) 20px
+    );
+    padding-top: 20px;
+    font-size: 16px;
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
 </style>
 
 <div class="text text-align-center">
-    <img alt="" data-bind="attr:{ src: logoSource, height: height, width: width }" class="brand-logo-image"
-        onerror="this.onerror=null; this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAABQCAYAAACj6kh7AAAD0klEQVR4nO3bzXEiRxQA4FmXE5BDGIeAiiMndOQoQmBDkELQhmCFgI4c4cSRMiGIFAjBrla9Xj9PjVfsSrYZ9H1VFCXome4eqV+9/lEDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMB5++T3Myzjyeyup8H73Xa1+b87Em2b7rarm1fKnEV7GZ6f/M4G56FpmkUJDPG6bZpmPZ7M1gPpSGn/6AzawQAJWMP0WLKYeF03TTMvwWs8mS0++oPhsv3s9zt8u+3qaTyZlX5c1c5E8DrEjyWjedptV4f4bpqynM1uu9qn69rI2p6apmlTuRIkj/lhpbIv93nvBxl9qH3qq/8q6r+Kvu5r22tfU7kazI+77erxvdvKf0PAugARgIo8oOtAbmMgvwSU8WS2jO828f3DeDL7nAZxG9O2HAjK/Rfjyey6Bo3xZFYCWZ2GlvvfRdnjW59oBJh1ant5vxtPZjc1uKYyo+hLG3WP4poanGs7j/HZKALhTTcAcv4ErGGaRkbVRFBZRAbSlzn8moLMIgLRdRr4ywhQ3WvLwvjn5q+AuI5ra7llBICXgZ8CyHtYRr9y25exVlc/u4sglfvyW14fS20qWeQ8ffZ71PGPmwOcJ2tYw9SmRfdRnTbFYMyechZRAtpuu/qUp4CRjXSva2JKWK+r071aTxtt+DpNi/ennvt8l+jDtGcKeB/112yyTv1yX7r1T+OaL6kvx/h52vO8OHMyrGEqg/nrIEzTnkMenH3Gk9ltZCdv2alr4/3wSrkfUduVA1EJNIfIKmvd7Qn1t3HtvvN5XttzvGJAZFgXIAbkPmUfvSJYLaPsPKZEFqAZDAHrcpwyvRnVtamysxhTvR/JkmrG0nY+f/MUK00//5YBRrDNde9PyBLr2lY3kE87dTEQAtYwtWUQptcyBu9r2dIxdsleBmy8337vE4h1oE3sMOZ7nXoOrNv+aSeofIldwXrvNqax+YR86ettPfkfZR467dxE0HqI73M7vzl15jwJWMO0iDWrddr+n5es6ZXePEagKbttf6TpYV8W8pp5ZGf5XqdmLN32r/MO4267uo+21ns/R7C9SWUeo8xDKtNdq2rimnLtc5Rbxxrg/aX8MXwk/pfwA4pF+qvIWN50Fqne69+YXqXdyGPPwnm3TD00Wo42/NJzyLT2+ZAPlTIsAhaDFAGoTAfvYwdxFMHq+K1/vmbYHGtgqA6RMT2nQ7SbmKpyoWRYDNop00YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADo0zTNnyc0f/NPd9xLAAAAAElFTkSuQmCC'">
+  <img
+    alt=""
+    data-bind="attr:{ src: logoSource }"
+    class="brand-logo-image"
+    onerror="this.onerror=null; this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAABQCAYAAACj6kh7AAAD0klEQVR4nO3bzXEiRxQA4FmXE5BDGIeAiiMndOQoQmBDkELQhmCFgI4c4cSRMiGIFAjBrla9Xj9PjVfsSrYZ9H1VFCXome4eqV+9/lEDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMB5++T3Myzjyeyup8H73Xa1+b87Em2b7rarm1fKnEV7GZ6f/M4G56FpmkUJDPG6bZpmPZ7M1gPpSGn/6AzawQAJWMP0WLKYeF03TTMvwWs8mS0++oPhsv3s9zt8u+3qaTyZlX5c1c5E8DrEjyWjedptV4f4bpqynM1uu9qn69rI2p6apmlTuRIkj/lhpbIv93nvBxl9qH3qq/8q6r+Kvu5r22tfU7kazI+77erxvdvKf0PAugARgIo8oOtAbmMgvwSU8WS2jO828f3DeDL7nAZxG9O2HAjK/Rfjyey6Bo3xZFYCWZ2GlvvfRdnjW59oBJh1ant5vxtPZjc1uKYyo+hLG3WP4poanGs7j/HZKALhTTcAcv4ErGGaRkbVRFBZRAbSlzn8moLMIgLRdRr4ywhQ3WvLwvjn5q+AuI5ra7llBICXgZ8CyHtYRr9y25exVlc/u4sglfvyW14fS20qWeQ8ffZ71PGPmwOcJ2tYw9SmRfdRnTbFYMyechZRAtpuu/qUp4CRjXSva2JKWK+r071aTxtt+DpNi/ennvt8l+jDtGcKeB/112yyTv1yX7r1T+OaL6kvx/h52vO8OHMyrGEqg/nrIEzTnkMenH3Gk9ltZCdv2alr4/3wSrkfUduVA1EJNIfIKmvd7Qn1t3HtvvN5XttzvGJAZFgXIAbkPmUfvSJYLaPsPKZEFqAZDAHrcpwyvRnVtamysxhTvR/JkmrG0nY+f/MUK00//5YBRrDNde9PyBLr2lY3kE87dTEQAtYwtWUQptcyBu9r2dIxdsleBmy8337vE4h1oE3sMOZ7nXoOrNv+aSeofIldwXrvNqax+YR86ettPfkfZR467dxE0HqI73M7vzl15jwJWMO0iDWrddr+n5es6ZXePEagKbttf6TpYV8W8pp5ZGf5XqdmLN32r/MO4267uo+21ns/R7C9SWUeo8xDKtNdq2rimnLtc5Rbxxrg/aX8MXwk/pfwA4pF+qvIWN50Fqne69+YXqXdyGPPwnm3TD00Wo42/NJzyLT2+ZAPlTIsAhaDFAGoTAfvYwdxFMHq+K1/vmbYHGtgqA6RMT2nQ7SbmKpyoWRYDNop00YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADo0zTNnyc0f/NPd9xLAAAAAElFTkSuQmCC'"
+  />
 </div>
