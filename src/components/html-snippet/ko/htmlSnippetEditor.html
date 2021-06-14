@@ -1,0 +1,23 @@
+<div class="form" data-bind="scrollable: true">
+  <div class="form-group form-group-collapsible">
+    <label class="form-label">
+      <a href="#" class="form-group-toggle" title="Toggle section" data-bind="collapse: '#basicCollapse'"></a>
+      <b>Source Code</b>
+    </label>
+    <div id="basicCollapse" class="collapse form-group-collapse">
+      <div class="form-group">
+        <label class="form-label"> Place code </label>
+        <textarea
+          class="form-control"
+          cols="30"
+          rows="6"
+          data-bind="textInput: sourceCode, event: { change: applyChanges }"
+        >
+        </textarea>
+        <!-- <input type="number" class="form-control" data-bind="textInput: initialCount" min="0" />
+        <input name="size" type="radio" value="{{PartnerLogoUrlSmall}}"
+                        data-bind="checked: logoSource, event: { change: applyChanges }" />Small -->
+      </div>
+    </div>
+  </div>
+</div>
