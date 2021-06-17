@@ -21,6 +21,7 @@ import { StaticRoleService } from "../user/staticRoleService";
 import { PartnerLogoRuntimeModule } from "../components/partner-logo/partnerLogo.runtime.module";
 import { BrandLogoRuntimeModule } from "../components/brand-logo/brandLogo.runtime.module";
 import { HtmlSnippetRuntimeModule } from "../components/html-snippet/htmlSnippet.runtime.module";
+import { IframeRuntimeModule } from "../components/iframe/iframe.runtime.module";
 import { ClickCounterRuntimeModule } from "../components/click-counter/clickCounter.runtime.module";
 export class DemoRuntimeModule implements IInjectorModule {
     public register(injector: IInjector): void {
@@ -28,6 +29,7 @@ export class DemoRuntimeModule implements IInjectorModule {
         injector.bindModule(new PartnerLogoRuntimeModule());
         injector.bindModule(new BrandLogoRuntimeModule());
         injector.bindModule(new HtmlSnippetRuntimeModule());
+        injector.bindModule(new IframeRuntimeModule());
         // injector.bindSingleton("eventManager", DefaultEventManager);
         // injector.bindCollection("autostart");
         // injector.bindCollection("routeGuards");

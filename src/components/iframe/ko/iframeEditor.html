@@ -1,0 +1,15 @@
+<div class="form" data-bind="scrollable: true">
+  <div class="form-group form-group-collapsible">
+    <label class="form-label">
+      <a href="#" class="form-group-toggle" title="Toggle section" data-bind="collapse: '#basicCollapse'"></a>
+      <b>IFrame Source</b>
+    </label>
+    <div id="basicCollapse" class="collapse form-group-collapse">
+      <div class="form-group">
+        <label class="form-label"> Place URL </label>
+        <input class="form-control" data-bind="textInput: frameSrc, event: { change: applyChanges }" min="0" />
+      </div>
+    </div>
+  </div>
+  <size-editor params="{ features: 'height,width', sizeConfig: sizeConfig, onUpdate: onSizeChange }"></size-editor>
+</div>
