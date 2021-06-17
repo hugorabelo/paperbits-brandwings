@@ -5,26 +5,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto",
-              "1fr"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "1fr"],
+            "cols": ["1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "1fr"
-            ],
-            "cols": [
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "1fr"],
+            "cols": ["1fr", "1fr"]
           }
         }
       }
@@ -190,26 +176,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto",
-              "1fr"
-            ],
-            "cols": [
-              "33.1fr",
-              "33.1fr",
-              "33.1fr"
-            ]
+            "rows": ["auto", "1fr"],
+            "cols": ["33.1fr", "33.1fr", "33.1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "1fr"
-            ],
-            "cols": [
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "1fr"],
+            "cols": ["1fr", "1fr"]
           }
         }
       }
@@ -375,26 +347,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "1fr",
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["1fr", "auto"],
+            "cols": ["1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "1fr",
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "1fr", "auto"],
+            "cols": ["1fr", "1fr"]
           }
         }
       }
@@ -560,26 +518,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "1fr",
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["1fr", "auto"],
+            "cols": ["1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "1fr",
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "1fr", "auto"],
+            "cols": ["1fr", "1fr"]
           }
         }
       }
@@ -725,26 +669,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto",
-              "1fr"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "1fr"],
+            "cols": ["1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -876,26 +806,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -1037,26 +953,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto",
-              "1fr"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "1fr"],
+            "cols": ["1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -1168,26 +1070,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto",
-              "2fr"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "2fr"],
+            "cols": ["1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -1299,24 +1187,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "1fr",
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["1fr", "auto"],
+            "cols": ["1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -1420,24 +1296,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto",
-              "1fr"
-            ],
-            "cols": [
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "1fr"],
+            "cols": ["1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -1541,14 +1405,8 @@
       "instance": {
         "grid": {
           "xs": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr", "1fr"]
           }
         }
       }
@@ -1610,25 +1468,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto",
-              "1fr"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "1fr"],
+            "cols": ["1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -1740,25 +1585,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto",
-              "1fr"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "1fr"],
+            "cols": ["1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -1870,25 +1702,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -2054,24 +1873,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -2183,24 +1990,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "3fr",
-              "6fr",
-              "3fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["3fr", "6fr", "3fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -2312,22 +2107,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "4fr",
-              "8fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["4fr", "8fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -2405,22 +2190,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "8fr",
-              "4fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["8fr", "4fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -2494,22 +2269,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "3fr",
-              "1fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["3fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -2599,22 +2364,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "3fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["1fr", "3fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -2704,22 +2459,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "3fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["1fr", "3fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -2809,22 +2554,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -2914,22 +2649,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -3019,26 +2744,12 @@
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "1fr",
-              "1fr",
-              "1fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["1fr", "1fr", "1fr", "1fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto",
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto", "auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -3176,12 +2887,8 @@
       "instance": {
         "grid": {
           "xs": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["1fr"]
           }
         }
       }
@@ -3214,27 +2921,17 @@
     ]
   },
   {
-    "type": "grid2",
+    "type": "grid",
     "styles": {
       "instance": {
         "grid": {
           "md": {
-            "rows": [
-              "auto"
-            ],
-            "cols": [
-              "1fr",
-              "5fr"
-            ]
+            "rows": ["auto"],
+            "cols": ["1fr", "5fr"]
           },
           "xs": {
-            "rows": [
-              "auto",
-              "auto"
-            ],
-            "cols": [
-              "1fr"
-            ]
+            "rows": ["auto", "auto"],
+            "cols": ["1fr"]
           }
         }
       }
