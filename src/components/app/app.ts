@@ -17,6 +17,7 @@ import { IBlockService } from  "@paperbits/common/blocks";
 import { PageItem } from "@paperbits/core/workshops/page/ko/pageItem";
 import { HttpClient } from "@paperbits/common/http";
 import { IMediaService, MediaContract } from "@paperbits/common/media";
+import { IUrlService, UrlContract } from "@paperbits/common/urls";
 import { LayoutItem } from "@paperbits/core/workshops/layout/ko";
 import { layoutTemplate } from "@paperbits/common/layouts/layoutTemplate";
 import { EventManager } from "@paperbits/common/events";
@@ -51,6 +52,7 @@ export class App {
         private readonly blockService: IBlockService,
         private readonly httpClient: HttpClient,
         private readonly mediaService: IMediaService,
+        private readonly urlService: IUrlService,
         private readonly layoutService: ILayoutService,
         private readonly emailService: EmailService,
         private readonly logger: Logger,
@@ -135,12 +137,14 @@ export class App {
                     break;
                 case "layout":
                     this.loadImageList(object.imagesList);
+                    this.loadUrlsList(object.urlsList);
                     this.loadMenuList(object.menusList);
                     this.openStyle(object.styles);
                     this.openLayoutObject(object.id, object.name, object.markup);
                     break;
                 case "page":
                     this.loadImageList(object.imagesList);
+                    this.loadUrlsList(object.urlsList);
                     this.openStyle(object.styles);
                     this.openPageObject(object.id, object.title, object.language, object.markup)
                     break;
@@ -327,6 +331,28 @@ export class App {
         this.objectStorage.deleteObject('navigationItems')
             .then(() => {
                 this.objectStorage.addObject('navigationItems', menusList);
+            })
+    }
+
+    public async loadUrlsList(urlsList) {
+        const query = Query
+            .from<UrlContract>()
+            .orderBy(`title`);
+        this.urlService.search(query)
+            .then(response => {
+                response.value.forEach(element => {
+                    if(element.permalink !== '{{Link}}') {
+                        this.urlService.deleteUrl(element)
+                    }
+                });
+                Object.values(urlsList).forEach(url => {
+                    const urlItem: UrlContract = {
+                        key: url["key"],
+                        permalink: url["permalink"],
+                        title: url["title"]
+                    };
+                    this.objectStorage.addObject(urlItem.key, urlItem);
+                });
             })
     }
 

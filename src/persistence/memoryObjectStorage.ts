@@ -221,6 +221,7 @@ export class MemoryObjectStorage implements IObjectStorage {
         const _filesObject = delta["files"];
         const _stylesObject = delta["styles"];
         const _emailTemplatesObject = delta["emailTemplates"];
+        const _urls = delta["urls"];
 
         const element = document.querySelector(".host") as HTMLIFrameElement;
         var iframeDocument = element.contentDocument.getElementsByTagName("body")[0];
@@ -233,6 +234,7 @@ export class MemoryObjectStorage implements IObjectStorage {
                     files: _filesObject,
                     styles: _stylesObject,
                     emailTemplates: _emailTemplatesObject,
+                    urls: _urls,
                     thumbnail: image
                 }
                 return new Promise<void>(resolve => { 
