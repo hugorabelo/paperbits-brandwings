@@ -14,10 +14,12 @@ import { StyleHelper } from "@paperbits/styles";
 })
 export class BrandLogoEditor implements WidgetEditor<BrandLogoModel> {
     public readonly logoSource: ko.Observable<string>;
+    public readonly width: ko.Observable<number>;
     public readonly background: ko.Observable<BackgroundStylePluginConfig>;
 
     constructor() {
         this.logoSource = ko.observable("0");
+        this.width = ko.observable();
         this.background = ko.observable<BackgroundStylePluginConfig>();
     }
 
@@ -38,6 +40,7 @@ export class BrandLogoEditor implements WidgetEditor<BrandLogoModel> {
         this.logoSource
             .extend(ChangeRateLimit)
             .subscribe(this.applyChanges);
+        this.width(this.model.width)
 
         const backgroundStyleConfig = StyleHelper.getPluginConfigForLocalStyles(this.model.styles, "background");
         this.background(backgroundStyleConfig);
@@ -45,6 +48,26 @@ export class BrandLogoEditor implements WidgetEditor<BrandLogoModel> {
 
     private applyChanges(): void {
         this.model.logoSource = this.logoSource();
+        switch(this.model.logoSource.toString()) {
+            case '{{BrandLogoUrlXSmall}}':
+                this.model.width = 50
+                break
+            case '{{BrandLogoUrlSmall}}':
+                this.model.width = 150
+                break
+            case '{{BrandLogoUrlMedium}}':
+                this.model.width = 300
+                break
+            case '{{BrandLogoUrlLarge}}':
+                this.model.width = 400
+                break
+            case '{{BrandLogoUrlXLarge}}':
+                this.model.width = 600
+                break
+            case '{{BrandLogoUrlXXLarge}}':
+                this.model.width = 800
+                break
+        }
         this.onChange(this.model);
     }
 

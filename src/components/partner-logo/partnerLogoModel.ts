@@ -15,12 +15,18 @@ export class PartnerLogoModel {
     public logoSource: string;
 
     /**
+     * Partner Logo Editor Width.
+     */
+    public width: number;
+
+    /**
      * Widget local styles.
      */
     public styles: LocalStyles;
 
     constructor() {
         this.logoSource = "{{PartnerLogoUrlXLarge}}";
+        this.width = 400;
         this.styles = {
             appearance: "components/card/default"
         };

@@ -13,7 +13,7 @@ export class BrandLogoViewModelBinder implements ViewModelBinder<BrandLogoModel,
             viewModel = new BrandLogo();
         }
 
-        viewModel.runtimeConfig(JSON.stringify({ logoSource: model.logoSource }));
+        viewModel.runtimeConfig(JSON.stringify({ logoSource: model.logoSource, width: model.width }));
 
         const binding: IWidgetBinding<BrandLogoModel, BrandLogo> = {
             name: "brand-logo",

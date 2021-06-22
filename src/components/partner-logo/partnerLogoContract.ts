@@ -8,6 +8,11 @@ export interface PartnerLogoContract extends Contract {
     logoSource: string;
 
     /**
+     * Logo Editor Width.
+     */
+    width: number;
+
+    /**
      * Widget local styles.
      */
     styles?: LocalStyles;

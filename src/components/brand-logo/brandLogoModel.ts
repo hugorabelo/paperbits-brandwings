@@ -15,12 +15,18 @@ export class BrandLogoModel {
     public logoSource: string;
 
     /**
+     * Logo Editor Width.
+     */
+    public width: number;
+
+    /**
      * Widget local styles.
      */
     public styles: LocalStyles;
 
     constructor() {
         this.logoSource = "{{BrandLogoUrlXLarge}}";
+        this.width = 400;
         this.styles = {
             appearance: "components/card/default"
         };

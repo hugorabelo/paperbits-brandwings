@@ -14,10 +14,12 @@ import { StyleHelper } from "@paperbits/styles";
 })
 export class PartnerLogoEditor implements WidgetEditor<PartnerLogoModel> {
     public readonly logoSource: ko.Observable<string>;
+    public readonly width: ko.Observable<number>;
     public readonly background: ko.Observable<BackgroundStylePluginConfig>;
 
     constructor() {
         this.logoSource = ko.observable("0");
+        this.width = ko.observable();
         this.background = ko.observable<BackgroundStylePluginConfig>();
     }
 
@@ -39,12 +41,34 @@ export class PartnerLogoEditor implements WidgetEditor<PartnerLogoModel> {
             .extend(ChangeRateLimit)
             .subscribe(this.applyChanges);
 
+        this.width(this.model.width)
+
         const backgroundStyleConfig = StyleHelper.getPluginConfigForLocalStyles(this.model.styles, "background");
         this.background(backgroundStyleConfig);
     }
 
     private applyChanges(): void {
         this.model.logoSource = this.logoSource();
+        switch(this.model.logoSource.toString()) {
+            case '{{PartnerLogoUrlXSmall}}':
+                this.model.width = 50
+                break
+            case '{{PartnerLogoUrlSmall}}':
+                this.model.width = 150
+                break
+            case '{{PartnerLogoUrlMedium}}':
+                this.model.width = 300
+                break
+            case '{{PartnerLogoUrlLarge}}':
+                this.model.width = 400
+                break
+            case '{{PartnerLogoUrlXLarge}}':
+                this.model.width = 600
+                break
+            case '{{PartnerLogoUrlXXLarge}}':
+                this.model.width = 800
+                break
+        }
         this.onChange(this.model);
     }
 

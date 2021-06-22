@@ -10,6 +10,14 @@
           <input
             name="size"
             type="radio"
+            value="{{PartnerLogoUrlXSmall}}"
+            data-bind="checked: logoSource, event: { change: applyChanges }"
+          />Extra Small
+        </label>
+        <label class="form-label">
+          <input
+            name="size"
+            type="radio"
             value="{{PartnerLogoUrlSmall}}"
             data-bind="checked: logoSource, event: { change: applyChanges }"
           />Small
@@ -37,6 +45,14 @@
             value="{{PartnerLogoUrlXLarge}}"
             data-bind="checked: logoSource, event: { change: applyChanges }"
           />Extra Large
+        </label>
+        <label class="form-label">
+          <input
+            name="size"
+            type="radio"
+            value="{{PartnerLogoUrlXXLarge}}"
+            data-bind="checked: logoSource, event: { change: applyChanges }"
+          />Super Extra Large
         </label>
       </div>
     </div>

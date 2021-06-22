@@ -14,10 +14,14 @@ export class BrandLogoRuntime {
 
     constructor() {
         this.logoSource = ko.observable<string>();
+        this.width = ko.observable<number>();
     }
 
     @Param()
     public readonly logoSource: ko.Observable<string>;
+
+    @Param()
+    public width: ko.Observable<number>;
 
     @OnMounted()
     public async initialize(): Promise<void> {
