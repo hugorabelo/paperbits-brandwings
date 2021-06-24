@@ -39,12 +39,15 @@ export class MemoryObjectStorage implements IObjectStorage {
                 }).then(response => {
                     var responseObject = response.toObject();
                     this.brandWingsURL = responseObject['BRAND_WINGS_URL'];
-                    return new Promise<void>(resolve => { 
-                        window.parent.postMessage({
-                            "message": "builder.loaded"
-                        }, this.brandWingsURL)
-                        resolve();
-                    });
+                    // return new Promise<void>(resolve => { 
+                    //     window.parent.postMessage({
+                    //         "message": "builder.loaded"
+                    //     }, this.brandWingsURL)
+                    //     resolve();
+                    // });
+                    window.parent.postMessage({
+                        "message": "builder.loaded"
+                    }, this.brandWingsURL)
                 });
         }
 
@@ -237,13 +240,17 @@ export class MemoryObjectStorage implements IObjectStorage {
                     urls: _urls,
                     thumbnail: image
                 }
-                return new Promise<void>(resolve => { 
-                    window.parent.postMessage({
-                        "message": "builder.saved",
-                        "object": sendObject
-                    }, _brandWingsURL)
-                    resolve();
-                });
+                // return new Promise<void>(resolve => { 
+                //     window.parent.postMessage({
+                //         "message": "builder.saved",
+                //         "object": sendObject
+                //     }, _brandWingsURL)
+                //     resolve();
+                // });
+                window.parent.postMessage({
+                    "message": "builder.saved",
+                    "object": sendObject
+                }, _brandWingsURL)
             })
 
         // FileSaver.saveAs(stateBlob, "demo.json");

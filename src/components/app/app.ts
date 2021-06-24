@@ -65,13 +65,17 @@ export class App {
                 id: this.currentObject['id'],
                 html: document.documentElement.innerHTML
             }
-            return new Promise<void>(resolve => { 
-                window.parent.postMessage({
-                        "message": "builder.saveHTML",
-                        "object": sendObject
-                    }, this.brandWingsURL)
-                resolve();
-            });
+            // return new Promise<void>(resolve => { 
+            //     window.parent.postMessage({
+            //             "message": "builder.saveHTML",
+            //             "object": sendObject
+            //         }, this.brandWingsURL)
+            //     resolve();
+            // });
+            window.parent.postMessage({
+                "message": "builder.saveHTML",
+                "object": sendObject
+            }, this.brandWingsURL)
         });
     }
         
@@ -133,25 +137,25 @@ export class App {
         if(object.type) {
             switch (object.type) {
                 case "style":
-                    this.openStyle(object.content.style);
+                    this.openStyle(object.content.style, object.hideScreen);
                     break;
                 case "layout":
                     this.loadImageList(object.imagesList);
                     this.loadUrlsList(object.urlsList);
                     this.loadMenuList(object.menusList);
-                    this.openStyle(object.styles);
+                    this.openStyle(object.styles, object.hideScreen);
                     this.openLayoutObject(object.id, object.name, object.markup);
                     break;
                 case "page":
                     this.loadImageList(object.imagesList);
                     this.loadUrlsList(object.urlsList);
-                    this.openStyle(object.styles);
+                    this.openStyle(object.styles, object.hideScreen);
                     this.openPageObject(object.id, object.title, object.language, object.markup)
                     break;
                 case "emailTemplate":
                     this.loadImageList(object.imagesList);
                     this.loadVariablesList(object.variableFields)
-                    this.openStyle(object.styles);
+                    this.openStyle(object.styles, object.hideScreen);
                     this.openEmailObject(object.id, object.title, object.language, object.markup)
                     break;
                 case "images": 
@@ -345,23 +349,28 @@ export class App {
                         this.urlService.deleteUrl(element)
                     }
                 });
-                Object.values(urlsList).forEach(url => {
-                    const urlItem: UrlContract = {
-                        key: url["key"],
-                        permalink: url["permalink"],
-                        title: url["title"]
-                    };
-                    this.objectStorage.addObject(urlItem.key, urlItem);
-                });
+                if(urlsList) {
+                    Object.values(urlsList).forEach(url => {
+                        const urlItem: UrlContract = {
+                            key: url["key"],
+                            permalink: url["permalink"],
+                            title: url["title"]
+                        };
+                        this.objectStorage.addObject(urlItem.key, urlItem);
+                    });
+                }
             })
     }
 
-    public openStyle(content) {
+    public openStyle(content, hideScreen = true) {
         if(content) {
             this.objectStorage.deleteObject('style')
                 .then(() => {
                     this.objectStorage.addObject('styles', JSON.parse(content))
-                    this.viewManager.setHost({ name: "style-guide" });
+                    console.log('hideScreen', hideScreen)
+                    if(!hideScreen) {
+                        this.viewManager.setHost({ name: "style-guide" });
+                    }
                 })
         } else {
             this.viewManager.setHost({ name: "page-host" });
