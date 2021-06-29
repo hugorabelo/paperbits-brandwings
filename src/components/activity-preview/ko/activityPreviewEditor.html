@@ -1,0 +1,44 @@
+<div class="form" data-bind="scrollable: true">
+  <div class="form-group form-group-collapsible">
+    <label class="form-label">
+      <a href="#" class="form-group-toggle" title="Toggle section" data-bind="collapse: '#basicCollapse'"></a>
+      <b>Source</b>
+    </label>
+    <div id="basicCollapse" class="collapse form-group-collapse">
+      <div class="form-group">
+        <label class="form-label">
+          <input
+            name="size"
+            type="radio"
+            value="{{ActivityPreviewImageSmall}}"
+            data-bind="checked: logoSource, event: { change: applyChanges }"
+          />Small
+        </label>
+        <label class="form-label">
+          <input
+            name="size"
+            type="radio"
+            value="{{ActivityPreviewImageMedium}}"
+            data-bind="checked: logoSource, event: { change: applyChanges }"
+          />Medium
+        </label>
+        <label class="form-label">
+          <input
+            name="size"
+            type="radio"
+            value="{{ActivityPreviewImageLarge}}"
+            data-bind="checked: logoSource, event: { change: applyChanges }"
+          />Large
+        </label>
+        <label class="form-label">
+          <input
+            name="size"
+            type="radio"
+            value="{{ActivityPreviewImageXLarge}}"
+            data-bind="checked: logoSource, event: { change: applyChanges }"
+          />Extra Large
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

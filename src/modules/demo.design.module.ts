@@ -17,6 +17,7 @@ import { StaticRoleService } from "../user/staticRoleService";
 import { PartnerLogoEditorModule } from "../components/partner-logo/partnerLogo.design.module";
 import { BrandLogoEditorModule } from "../components/brand-logo/brandLogo.design.module";
 import { HtmlSnippetEditorModule } from "../components/html-snippet/htmlSnippet.design.module";
+import { ActivityPreviewEditorModule } from "../components/activity-preview/activityPreview.design.module";
 import { IframeEditorModule } from "../components/iframe/iframe.design.module";
 import { HttpDataProvider } from "../persistence/httpDataProvider";
 import { DefaultEventManager } from "@paperbits/common/events";
@@ -45,6 +46,7 @@ export class DemoDesignModule implements IInjectorModule {
         injector.bindModule(new PartnerLogoEditorModule());
         injector.bindModule(new BrandLogoEditorModule());
         injector.bindModule(new HtmlSnippetEditorModule());
+        injector.bindModule(new ActivityPreviewEditorModule());
         injector.bindModule(new IframeEditorModule());
         injector.bindInstance("textblockEditorPlugins", [
             "text-block-editor-formatting",

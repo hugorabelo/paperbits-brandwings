@@ -367,7 +367,6 @@ export class App {
             this.objectStorage.deleteObject('style')
                 .then(() => {
                     this.objectStorage.addObject('styles', JSON.parse(content))
-                    console.log('hideScreen', hideScreen)
                     if(!hideScreen) {
                         this.viewManager.setHost({ name: "style-guide" });
                     }
