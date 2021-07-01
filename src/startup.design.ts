@@ -9,7 +9,7 @@
 import "./polyfills";
 import * as ko from "knockout";
 import { InversifyInjector } from "@paperbits/common/injection";
-import { CoreDesignModule } from "@paperbits/core/core.design.module";
+import { CoreDesignModule } from "./modules/core.design.module";
 import { FormsDesignModule } from "@paperbits/forms/forms.design.module";
 import { EmailsDesignModule } from "@paperbits/emails/emails.design.module";
 import { StylesDesignModule } from "@paperbits/styles/styles.design.module";

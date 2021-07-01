@@ -10,7 +10,6 @@
 import { IInjector, IInjectorModule } from "@paperbits/common/injection";
 import { App } from "../components/app/app";
 import { ConsoleLogger } from "@paperbits/common/logging";
-import { SearchDesignModule } from "@paperbits/core/search/search.design.module";
 import { MemoryObjectStorage } from "../persistence/memoryObjectStorage";
 import { MemoryBlobStorage } from "../persistence/memoryBlobStorage";
 import { StaticRoleService } from "../user/staticRoleService";
@@ -24,7 +23,6 @@ import { DefaultEventManager } from "@paperbits/common/events";
 import { TextBlockEditorVariablesTools } from "../components/text-block-editor-variables/variableTools"
 import { VariableSelector } from "../components/text-block-editor-variables/variableSelector"
 import { VariableService } from "../components/text-block-editor-variables/variableService";
-import { ClickCounterEditorModule } from "../components/click-counter/clickCounter.design.module";
 import { HistoryRouteHandler, AnchorRouteHandler } from "@paperbits/common/routing";
 import { ReactModule } from "@paperbits/react/react.module";
 import { PopupDesignModule } from "@paperbits/core/popup";
@@ -41,8 +39,6 @@ export class DemoDesignModule implements IInjectorModule {
         injector.bindToCollection("autostart", AnchorRouteHandler);
         injector.bindSingleton("logger", ConsoleLogger);
         injector.bindSingleton("eventManager", DefaultEventManager);
-        injector.bindModule(new SearchDesignModule());
-        injector.bindModule(new ClickCounterEditorModule());
         injector.bindModule(new PartnerLogoEditorModule());
         injector.bindModule(new BrandLogoEditorModule());
         injector.bindModule(new HtmlSnippetEditorModule());
