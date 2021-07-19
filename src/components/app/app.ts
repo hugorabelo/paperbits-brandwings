@@ -142,6 +142,7 @@ export class App {
                 case "layout":
                     this.loadImageList(object.imagesList);
                     this.loadUrlsList(object.urlsList);
+                    this.loadLinkPagesList(object.pageLinksList);
                     this.loadMenuList(object.menusList);
                     this.openStyle(object.styles, object.hideScreen);
                     this.openLayoutObject(object.id, object.name, object.markup);
@@ -149,6 +150,7 @@ export class App {
                 case "page":
                     this.loadImageList(object.imagesList);
                     this.loadUrlsList(object.urlsList);
+                    this.loadLinkPagesList(object.pageLinksList, object.id);
                     this.openStyle(object.styles, object.hideScreen);
                     this.openPageObject(object.id, object.title, object.language, object.markup)
                     break;
@@ -436,5 +438,27 @@ export class App {
         await this.objectStorage.addObject(contentKey, template);
 
         return emailTemplate;
+    }
+
+    public async loadLinkPagesList(pageLinksList, currentPageId = null) {
+        const query = Query
+            .from<PageContract>()
+            .orderBy(`title`);
+        this.pageService.search(query)
+            .then(response => {
+                response.value.forEach(element => {
+                    if(element.permalink !== '/') {
+                        this.pageService.deletePage(element)
+                    }
+                });
+                if(pageLinksList) {
+                    Object.values(pageLinksList).forEach(async page => {
+                        if(page["id"] != currentPageId) {
+                            const pageUrl = "/pages/" + page["id"];
+                            await this.createPage(pageUrl, page["title"], "", "", page["id"], page["language"].toLowerCase(), '[]')
+                        }
+                    });
+                }
+            })
     }
 }
